@@ -44,16 +44,12 @@ const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
             label="PIN"
             placeholder="Enter your PIN"
             password
+            passwordIcon
           />
           {/* remember me & forget password */}
           <View style={styles.forgetPassword}>
             <View style={{flex: 1, marginRight: -20}}>
               <View>
-                {/* <CheckBox  
-                  disabled={false}
-                  value={toggleCheckBox}
-                  onValueChange={(newValue) => setToggleCheckBox(newValue)}
-                /> */}
                 <Text
                   style={{
                     color: Colors.gray,
@@ -75,7 +71,7 @@ const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
           </View>
 
           <View style={{marginTop: Spacing*2}} />
-          <Button title="Sign in" onPress={() => navigate('Login')} />
+          <Button title="Sign in" onPress={() => navigate("ChoosePilot")} />
 
           <Text style={styles.text3}>Don’t have an account?<Text style={styles.text4} onPress={() => navigate("CreateAccount")} > Sign up</Text>.</Text>
         </View>

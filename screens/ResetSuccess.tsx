@@ -38,7 +38,7 @@ const ResetSuccess: React.FC<Props> = ({ navigation: { navigate } }) => {
         {/* ====== ======== */}
         <View style={{marginVertical: 20}}>
           <View style={{marginTop: Spacing*2}} />
-          <Button title="Continue" onPress={() => navigate('Login')} />
+          <Button title="Continue" onPress={() => navigate('ChoosePilot')} />
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -42,6 +42,7 @@ const Create: React.FC<Props> = ({ navigation: { navigate } }) => {
             label="PIN"
             placeholder="Create a PIN"
             password
+            passwordIcon
           />
           <View style={{marginTop: Spacing*2}} />
           <Button title="Sign up" onPress={() => navigate('Login')} />

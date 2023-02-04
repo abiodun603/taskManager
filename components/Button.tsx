@@ -23,7 +23,7 @@ const Button: React.FC<ButtonType> = ({title, onPress=()=>{}, ...props}) => {
       }}
       {...props}
     >
-      <Text style={{color: Colors.background, fontSize: 14, fontFamily: Font["inter-medium"]}}>{title}</Text>
+      <Text {...props} style={{color: Colors.background, fontSize: 14, fontFamily: Font["inter-medium"]} }>{title}</Text>
     </TouchableOpacity>
   )
 }

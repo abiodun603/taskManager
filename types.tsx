@@ -13,10 +13,10 @@ export type RootStackParamList = {
   OtpScreen: undefined;
   ResetPassword: undefined;
   ResetSuccess: undefined;
-  UnRegister: undefined;
-  JoinMeeting: undefined;
-  Verification: undefined;
-  Chat: undefined;
+  ChoosePilot: undefined;
+  PickPilot: undefined;
+  SelectPlan: undefined;
+  Payment: undefined;
   Active: undefined;
 };
 
