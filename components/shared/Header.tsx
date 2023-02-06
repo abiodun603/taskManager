@@ -16,12 +16,12 @@ const Header: React.FC<HeaderProps> = ({navigation, title}) => {
 
   return (
     <View style={styles.header}>
-      {/* <Ionicons name="ios-arrow-back" size={28} onPress={openMenu} style={styles.icon} /> */}
+      <Ionicons name="ios-arrow-back" size={28} onPress={openMenu} style={styles.icon} />
       <Text
         style={{color: "#101828", fontSize:16, fontFamily: Font["inter-medium"]}}
       >Pick your One Reach number</Text>
 
-      {/* <Text>1/2</Text> */}
+      <Text>1/2</Text>
     </View>
   )
 }
@@ -31,10 +31,11 @@ export default Header
 const styles = StyleSheet.create({
   header: {
     width: '100%',
-    height: '100%',
+    height: 50,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16
   },
   icon: {
 

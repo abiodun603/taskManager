@@ -7,20 +7,20 @@ import {
   View,
 } from "react-native";
 import React from 'react'
-import { RootStackParamList } from "../types";
+import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import Input from "../components/Input";
-import Button from "../components/Button";
-import Header from "../components/Header";
-import FontSize from "../constants/FontSize";
-import Colors from "../constants/Colors";
-import Font from "../constants/Font";
-import Spacing from "../constants/Spacing";
-type Props = NativeStackScreenProps<RootStackParamList, "OtpScreen">;
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+import Header from "../../components/Header";
+import FontSize from "../../constants/FontSize";
+import Colors from "../../constants/Colors";
+import Font from "../../constants/Font";
+import Spacing from "../../constants/Spacing";
+type Props = NativeStackScreenProps<RootStackParamList, "ResetPassword">;
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 
-const OtpScreen: React.FC<Props> = ({ navigation: { navigate }}) => {
+const ResetPassword: React.FC<Props> = ({ navigation: { navigate }}) => {
   return (
     <SafeAreaView>
       <ScrollView 
@@ -31,21 +31,24 @@ const OtpScreen: React.FC<Props> = ({ navigation: { navigate }}) => {
       >
         {/* ====== ======== */}
         <Header 
-          title="Check your inbox"
-          description="We sent a reset code to you."
+          title="Set new password"
+          description="Your new PIN must be different from previously used PINs."
         />
         {/* ====== ======== */}
         <View style={{marginVertical: 20}}>
           <Input
-            label="Reset Code"
-            placeholder="Enter your reset code"
+            label="PIN"
+            placeholder="Create a pin"
+          />
+
+          <Input
+            label="Confirm PIN"
+            placeholder="Retype new PIN"
           />
 
           <View style={{marginTop: Spacing*2}} />
-          <Button title="Proceed" onPress={() => navigate('ResetPassword')} />
+          <Button title="Reset PIN" onPress={() => navigate('ResetSuccess')} />
         </View>
-        {/* ===== ======= */}
-        <Text style={styles.text3}>Didn’t receive a code?<Text style={styles.text4} > Click to resend</Text>.</Text>
 
         {/* ===== ======== */}
         <TouchableOpacity onPress={() => navigate("Login")} style={{marginTop: Spacing, flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
@@ -58,7 +61,7 @@ const OtpScreen: React.FC<Props> = ({ navigation: { navigate }}) => {
   )
 }
 
-export default OtpScreen
+export default ResetPassword
 
 
 const styles = StyleSheet.create({

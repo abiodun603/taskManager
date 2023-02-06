@@ -1,13 +1,14 @@
 import { Platform, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { RootStackParamList } from "../types";
+import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import FontSize from '../constants/FontSize';
-import Font from '../constants/Font';
-import Colors from '../constants/Colors';
+import FontSize from '../../constants/FontSize';
+import Font from '../../constants/Font';
+import Colors from '../../constants/Colors';
 import Ionicons from "@expo/vector-icons/Ionicons"
-import Button from '../components/Button';
-import Spacing from '../constants/Spacing';
+import Button from '../../components/Button';
+import Spacing from '../../constants/Spacing';
+import Layout from '../../components/shared/Layout';
 type Props = NativeStackScreenProps<RootStackParamList, "SelectPlan">;
 
 const PlanList = () => {
@@ -63,52 +64,54 @@ const SelectPlan: React.FC<Props> = ({ navigation: {navigate}}) => {
   }
 
   return (
-    <View style={[styles.selectPlanContainer]}>
-      <Text
-        style={{
-          fontSize: FontSize.small,
-          fontFamily: Font["inter-regular"],
-          color: Colors.gray,
-          textAlign: "center",
-          paddingHorizontal: 52
-        }}
-      >
-        Your account will not be debited until your 7-day free trial elapses. You cancel anytime.
-      </Text>
-      
-      <View style={{marginVertical: 20, flexDirection: "row", alignItems: "center"}}>
+    <Layout >
+      <View style={[styles.selectPlanContainer]}>
         <Text
           style={{
-            color: Colors.primary,
             fontSize: FontSize.small,
-            fontFamily: Font["inter-medium"],
-            marginRight: 5
+            fontFamily: Font["inter-regular"],
+            color: Colors.gray,
+            textAlign: "center",
+            paddingHorizontal: 52
           }}
-          >Annual pricing 
-          <Text 
+        >
+          Your account will not be debited until your 7-day free trial elapses. You cancel anytime.
+        </Text>
+        
+        <View style={{marginVertical: 20, flexDirection: "row", alignItems: "center"}}>
+          <Text
             style={{
-              color: Colors.gray,
+              color: Colors.primary,
               fontSize: FontSize.small,
               fontFamily: Font["inter-medium"],
-            }}> (save 20%)</Text>
-        </Text>
-        <Switch 
-          onValueChange={toggleSwitch}
-          value={switchValue}
-        />
-      </View>
-      {/* ====== Plans Options ========= */}
-      <Plan />
+              marginRight: 5
+            }}
+            >Annual pricing 
+            <Text 
+              style={{
+                color: Colors.gray,
+                fontSize: FontSize.small,
+                fontFamily: Font["inter-medium"],
+              }}> (save 20%)</Text>
+          </Text>
+          <Switch 
+            onValueChange={toggleSwitch}
+            value={switchValue}
+          />
+        </View>
+        {/* ====== Plans Options ========= */}
+        <Plan />
 
-      {/* ====== Skip Button ========= */}
-      <TouchableOpacity
-        onPress={() => navigate("Payment")}
-        style={styles.skipButton}
-      >
-        <Text style={{color: Colors.gray, fontSize: 16, fontFamily: Font["inter-medium"]}}>Skip for now</Text>
-      </TouchableOpacity>
-       
-    </View>
+        {/* ====== Skip Button ========= */}
+        <TouchableOpacity
+          onPress={() => navigate("Payment")}
+          style={styles.skipButton}
+        >
+          <Text style={{color: Colors.gray, fontSize: 16, fontFamily: Font["inter-medium"]}}>Skip for now</Text>
+        </TouchableOpacity>
+        
+      </View>
+    </Layout>
   )
 }
 

@@ -7,20 +7,20 @@ import {
   View,
 } from "react-native";
 import React from 'react'
-import { RootStackParamList } from "../types";
+import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import Input from "../components/Input";
-import Button from "../components/Button";
-import Header from "../components/Header";
-import FontSize from "../constants/FontSize";
-import Colors from "../constants/Colors";
-import Font from "../constants/Font";
-import Spacing from "../constants/Spacing";
-type Props = NativeStackScreenProps<RootStackParamList, "ResetPassword">;
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+import Header from "../../components/Header";
+import FontSize from "../../constants/FontSize";
+import Colors from "../../constants/Colors";
+import Font from "../../constants/Font";
+import Spacing from "../../constants/Spacing";
+type Props = NativeStackScreenProps<RootStackParamList, "ForgetPassword">;
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 
-const ResetPassword: React.FC<Props> = ({ navigation: { navigate }}) => {
+const ForgetPassword: React.FC<Props> = ({ navigation: { navigate }}) => {
   return (
     <SafeAreaView>
       <ScrollView 
@@ -31,23 +31,18 @@ const ResetPassword: React.FC<Props> = ({ navigation: { navigate }}) => {
       >
         {/* ====== ======== */}
         <Header 
-          title="Set new password"
-          description="Your new PIN must be different from previously used PINs."
+          title="Forgot Pin?"
+          description="No worries, we’ll send you reset instructions"
         />
         {/* ====== ======== */}
         <View style={{marginVertical: 20}}>
           <Input
-            label="PIN"
-            placeholder="Create a pin"
-          />
-
-          <Input
-            label="Confirm PIN"
-            placeholder="Retype new PIN"
+            label="Phone number"
+            placeholder="Enter your phone number"
           />
 
           <View style={{marginTop: Spacing*2}} />
-          <Button title="Reset PIN" onPress={() => navigate('ResetSuccess')} />
+          <Button title="Reset PIN" onPress={() => navigate("OtpScreen")} />
         </View>
 
         {/* ===== ======== */}
@@ -61,18 +56,4 @@ const ResetPassword: React.FC<Props> = ({ navigation: { navigate }}) => {
   )
 }
 
-export default ResetPassword
-
-
-const styles = StyleSheet.create({
-  text3: {
-    color: Colors.text,
-    fontSize: FontSize.small,
-    fontFamily: Font["inter-regular"],
-    textAlign: "center",
-    marginVertical: Spacing * 1.5
-  },
-  text4: {
-    color: Colors.primary
-  },
-})
+export default ForgetPassword

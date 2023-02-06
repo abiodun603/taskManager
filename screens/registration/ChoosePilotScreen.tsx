@@ -1,11 +1,12 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { MaterialIcons, Ionicons } from '@expo/vector-icons'; 
-import { RootStackParamList } from "../types";
+import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import Font from '../constants/Font';
-import FontSize from '../constants/FontSize';
-import Colors from '../constants/Colors';
+import Font from '../../constants/Font';
+import FontSize from '../../constants/FontSize';
+import Colors from '../../constants/Colors';
+import Layout from '../../components/shared/Layout';
 type Props = NativeStackScreenProps<RootStackParamList, "ChoosePilot">;
 
 
@@ -81,14 +82,16 @@ const PilotNumber = ({pilotNumber, onPress=()=>{}}: pilotProps) => {
 
 const ChoosePilot: React.FC<Props> = ({ navigation: { navigate }}) => {
   return (
-    <View style={{padding: 15,}}>
-       {/* ====== Participant List =====*/}
-       <FlatList
+    <Layout>
+      <View style={{padding: 15,}}>
+        {/* ====== Participant List =====*/}
+        <FlatList
           data={DATA}
           keyExtractor={item => item.id}
           renderItem={({item}) => <PilotNumber pilotNumber={item.pilot} onPress={() => navigate("PickPilot")} /> }
         />
-    </View>
+      </View>
+    </Layout>
   )
 }
 

@@ -3,17 +3,17 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import Colors from "../constants/Colors";
 import { RootStackParamList } from "../types";
-import Create from "../screens/Create";
-import LoginScreen from "../screens/Login";
-import ForgetPassword from "../screens/ForgetPasswordScreen";
-import OtpScreen from "../screens/OtpScreen";
-import ResetPassword from "../screens/ResetPasswordScreen";
-import ResetSuccess from "../screens/ResetSuccess";
-import ChoosePilot from "../screens/ChoosePilotScreen";
+import Create from "../screens/auth/Create";
+import LoginScreen from "../screens/auth/Login";
+import ForgetPassword from "../screens/auth/ForgetPasswordScreen";
+import OtpScreen from "../screens/auth/OtpScreen";
+import ResetPassword from "../screens/auth/ResetPasswordScreen";
+import ResetSuccess from "../screens/auth/ResetSuccess";
+import ChoosePilot from "../screens/registration/ChoosePilotScreen";
 import Header from "../components/shared/Header";
-import PickPilot from "../screens/PickPilotScreen";
-import SelectPlan from "../screens/SelectPlanScreen";
-import Payment from "../screens/PaymentScreen";
+import PickPilot from "../screens/registration/PickPilotScreen";
+import SelectPlan from "../screens/registration/SelectPlanScreen";
+import Payment from "../screens/registration/PaymentScreen";
 
 const theme = {
   ...DefaultTheme,
@@ -41,6 +41,7 @@ export default function Navigation() {
  function RootNavigator() {
   return (
     <Stack.Navigator
+      screenOptions={{headerShown: false}}
     >
       <Stack.Screen name="CreateAccount" component={Create} options={{headerShown: false}} /> 
       <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}/> 
@@ -75,13 +76,12 @@ export default function Navigation() {
       <Stack.Screen 
         name="SelectPlan" 
         component={SelectPlan} 
-        options=  {
-          ()=>{
-            return { 
-              headerTitle: () => <Header  /> 
-            }
-          } 
-        }
+        // options=  {({navigation})=>{
+        //     return { 
+        //       headerTitle: () => <Header  navigation={navigation} /> 
+        //     }
+        //   } 
+        // }
       />
       <Stack.Screen 
         name="Payment" 
