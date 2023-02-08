@@ -46,7 +46,7 @@ const Payment: React.FC<Props> = ({ navigation: {navigate}}) => {
           />
           
           <View style={{marginVertical: 10}} />
-          <Button title="Activate your account" onPress={() => null} />
+          <Button title="Activate your account" onPress={() => navigate("CustomDrawer")} />
         </View>
         {/* plan */}
       </View>

@@ -18,6 +18,7 @@ export type RootStackParamList = {
   SelectPlan: undefined;
   Payment: undefined;
   Active: undefined;
+  CustomDrawer: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
