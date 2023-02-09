@@ -212,23 +212,23 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
                     </TouchableOpacity>
                 }
 
-                rightComponent = {
-                    <TouchableOpacity
-                        style= {{
-                            borderRadius: SIZES.radius,
-                            width: 40,
-                            height: 40
-                        }}
-                    >
-                    <Image source={curr__user.user__image} 
-                        style={{
-                            width: 40,
-                            height: 40,
-                            borderRadius: SIZES.radius,
-                        }}
-                    />
-                    </TouchableOpacity>
-                }
+                // rightComponent = {
+                //     <TouchableOpacity
+                //         style= {{
+                //             borderRadius: SIZES.radius,
+                //             width: 40,
+                //             height: 40
+                //         }}
+                //     >
+                //     <Image source={curr__user.user__image} 
+                //         style={{
+                //             width: 40,
+                //             height: 40,
+                //             borderRadius: SIZES.radius,
+                //         }}
+                //     />
+                //     </TouchableOpacity>
+                // }
             />
 
             <View style ={{flex:1}}>

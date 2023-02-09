@@ -37,7 +37,7 @@ const ResetPassword: React.FC<Props> = ({ navigation: { navigate }}) => {
         {/* ====== ======== */}
         <View style={{marginVertical: 20}}>
           <Input
-            label="PIN"
+            label="New PIN"
             placeholder="Create a pin"
           />
 

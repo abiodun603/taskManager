@@ -39,8 +39,8 @@ const Create: React.FC<Props> = ({ navigation: { navigate } }) => {
             placeholder="Enter your phone number"
           />
           <Input
-            label="PIN"
-            placeholder="Create a PIN"
+            label="Password"
+            placeholder="Create a Password"
             password
             passwordIcon
           />

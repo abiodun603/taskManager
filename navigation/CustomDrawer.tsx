@@ -163,7 +163,7 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}: {navigat
                       label="Logout"
                       icon = {logout}
                       onPress={() => {
-                          navigation.navigate("Signin")
+                         navigation.navigate("CreateAccount")
                       }}
                   />
               </View>
