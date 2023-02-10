@@ -16,6 +16,8 @@ import Crm from './Crm'
 import DailPad from './DailPad'
 import Account from './Account'
 import Header from '../components/Header'
+import Colors from '../constants/Colors'
+import Messages from './Messages'
 
 const TabButton = ({label, icon, isFocused,onPress, outerContainerStyle, innerContainerStyle}: {label: string, icon: any,isFocused: boolean, onPress: () => void, outerContainerStyle: any,  innerContainerStyle: any}) => {
     return (
@@ -78,10 +80,10 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
 
     const homeTabFlex = useSharedValue(1)
     const homeTabColor = useSharedValue(COLORS.white)
-    const searchTabFlex = useSharedValue(1)
-    const searchTabColor = useSharedValue(COLORS.white)
-    const guardTabFlex = useSharedValue(1)
-    const guardTabColor = useSharedValue(COLORS.white)
+    const messagesTabFlex = useSharedValue(1)
+    const messagesTabColor = useSharedValue(COLORS.white)
+    const padTabFlex = useSharedValue(1)
+    const padTabColor = useSharedValue(COLORS.white)
     const notificationTabFlex = useSharedValue(1)
     const notificationTabColor = useSharedValue(COLORS.white)
 
@@ -98,28 +100,31 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
         }
     })
 
-    const searchFlexStyle = useAnimatedStyle(() => {
+    
+    const messagesFlexStyle = useAnimatedStyle(() => {
         return {
-            flex: searchTabFlex.value
+            flex: messagesTabFlex.value
         }
     })
 
-    const searchColorStyle = useAnimatedStyle(() => {
+    const messagesColorStyle = useAnimatedStyle(() => {
         return {
-            backgroundColor: searchTabColor.value
-        }
-    })
-    const guardFlexStyle = useAnimatedStyle(() => {
-        return {
-            flex: guardTabFlex.value
+            backgroundColor: messagesTabColor.value
         }
     })
 
-    const guardColorStyle = useAnimatedStyle(() => {
-        return {
-            backgroundColor: guardTabColor.value
-        }
-    })
+    const padFlexStyle = useAnimatedStyle(() => {
+      return {
+          flex: padTabFlex.value
+      }
+  })
+
+  const padColorStyle = useAnimatedStyle(() => {
+      return {
+          backgroundColor: padTabColor.value
+      }
+  })
+
     const notificationFlexStyle = useAnimatedStyle(() => {
         return {
             flex: notificationTabFlex.value
@@ -143,43 +148,43 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
                 animated: false
             })
             homeTabFlex.value = withTiming(4 , {duration: 500})
-            homeTabColor.value = withTiming(COLORS.blue, {duration: 500})
+            homeTabColor.value = withTiming(Colors.primary, {duration: 500})
         }else {
             homeTabFlex.value = withTiming(1 , {duration: 500})
             homeTabColor.value = withTiming(COLORS.white, {duration: 500})
         }
 
-        if(selectedTab == constants.screens.search) {
+        if(selectedTab == constants.screens.messages) {
             flatListRef?.current?.scrollToIndex({
                 index: 1,
                 animated: false
             })
-            searchTabFlex.value = withTiming(4 , {duration: 500})
-            searchTabColor.value = withTiming(COLORS.blue, {duration: 500})
+            messagesTabFlex.value = withTiming(4 , {duration: 500})
+            messagesTabColor.value = withTiming(Colors.primary, {duration: 500})
         }else {
-            searchTabFlex.value = withTiming(1 , {duration: 500})
-            searchTabColor.value = withTiming(COLORS.white, {duration: 500})
+            messagesTabFlex.value = withTiming(1 , {duration: 500})
+            messagesTabColor.value = withTiming(COLORS.white, {duration: 500})
         }
 
-        if(selectedTab == constants.screens.guard) {
+        if(selectedTab == constants.screens.pad) {
             flatListRef?.current?.scrollToIndex({
                 index: 2,
                 animated: false
             })
-            guardTabFlex.value = withTiming(4 , {duration: 500})
-            guardTabColor.value = withTiming(COLORS.blue, {duration: 500})
+            padTabFlex.value = withTiming(4 , {duration: 500})
+            padTabColor.value = withTiming(Colors.primary, {duration: 500})
         }else {
-            guardTabFlex.value = withTiming(1 , {duration: 500})
-            guardTabColor.value = withTiming(COLORS.white, {duration: 500})
+            padTabFlex.value = withTiming(1 , {duration: 500})
+            padTabColor.value = withTiming(COLORS.white, {duration: 500})
         }
         
-        if(selectedTab == constants.screens.notification) {
+        if(selectedTab == constants.screens.crm) {
             flatListRef?.current?.scrollToIndex({
                 index: 3,
                 animated: false
             })
             notificationTabFlex.value = withTiming(4 , {duration: 500})
-            notificationTabColor.value = withTiming(COLORS.blue, {duration: 500})
+            notificationTabColor.value = withTiming(Colors.primary, {duration: 500})
         }else {
             notificationTabFlex.value = withTiming(1 , {duration: 500})
             notificationTabColor.value = withTiming(COLORS.white, {duration: 500})
@@ -251,9 +256,9 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
                                 }}
                             >
                                 {item.label === constants.screens.home && <Home/>}
-                                {item.label == constants.screens.search && <Crm/>}
-                                {item.label == constants.screens.guard && <DailPad/>}
-                                {item.label == constants.screens.notification && <Account/>}
+                                {item.label == constants.screens.messages && <Messages/>}
+                                {item.label == constants.screens.pad && <DailPad/>}
+                                {item.label == constants.screens.crm && <Crm/>}
                             </View>
                         )
                     }}
@@ -308,30 +313,30 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
                     />
                     
                     <TabButton
-                        label={constants.screens.guard}
+                        label={constants.screens.messages}
                         icon={addUser}
-                        isFocused={selectedTab == constants.screens.guard}
-                        outerContainerStyle ={guardColorStyle}
-                        innerContainerStyle = {guardFlexStyle}
-                        onPress={() => setSelectedTab(constants.screens.guard)}
+                        isFocused={selectedTab == constants.screens.messages}
+                        outerContainerStyle ={messagesColorStyle}
+                        innerContainerStyle = {messagesFlexStyle}
+                        onPress={() => setSelectedTab(constants.screens.messages)}
                     />
 
                     <TabButton
-                        label={constants.screens.search}
+                        label={constants.screens.pad}
                         icon={search}
-                        isFocused={selectedTab == constants.screens.search}
-                        outerContainerStyle ={searchColorStyle}
-                        innerContainerStyle = {searchFlexStyle}
-                        onPress={() => setSelectedTab(constants.screens.search)}
+                        isFocused={selectedTab == constants.screens.pad}
+                        outerContainerStyle ={padColorStyle}
+                        innerContainerStyle = {padFlexStyle}
+                        onPress={() => setSelectedTab(constants.screens.pad)}
                     />
 
                     <TabButton
-                        label={constants.screens.notification}
+                        label={constants.screens.crm}
                         icon={notification}
-                        isFocused={selectedTab == constants.screens.notification}
+                        isFocused={selectedTab == constants.screens.crm}
                         outerContainerStyle ={notificationColorStyle}
                         innerContainerStyle = {notificationFlexStyle}
-                        onPress={() => setSelectedTab(constants.screens.notification)}
+                        onPress={() => setSelectedTab(constants.screens.crm)}
                     />
                     
                 </View>

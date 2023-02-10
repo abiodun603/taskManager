@@ -1,9 +1,9 @@
 const screens = {
     main_layout: "MainLaoyout",
     home: "Home",
-    guard: "Guard",
-    search: "Search",
-    notification: "Notification"
+    messages: "Messages",
+    pad: "Dial pad",
+    crm: "CRM"
 }
 
 const sidebar__tabs = [
@@ -13,15 +13,15 @@ const sidebar__tabs = [
     },
     {
         id: 2,
-        label: screens.search
+        label: screens.messages
     },
     {
         id: 1,
-        label: screens.guard
+        label: screens.pad
     },
     {
         id: 3,
-        label: screens.notification
+        label: screens.crm
     },
 ]
 

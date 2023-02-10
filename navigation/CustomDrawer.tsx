@@ -1,21 +1,16 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity, ImageSourcePropType } from 'react-native'
-// import {useNavigation} from "@react-navigation/native"
+import {  Text, View, Image, TouchableOpacity, ImageSourcePropType } from 'react-native'
 import {createDrawerNavigator, DrawerContentScrollView} from "@react-navigation/drawer"
 import {COLORS, SIZES, FONTS} from "../assets"
 import cross from "../assets/images/icons/close.png"
-import addUser from "../assets/images/icons/add-use.png"
 import home from "../assets/images/icons/home2.png"
-import search from "../assets/images/icons/search.png"
-import notification from "../assets/images/icons/bell.png"
+import message from "../assets/images/icons/message.png"
 import logout from "../assets/images/icons/logout.png"
-import Animated  from 'react-native-reanimated'
 import {connect} from "react-redux"
 import { setSelectedTab } from '../stores/tab/tabAction'
 import { constants } from '../constants'
 import MainLayout from '../screens/MainLayout'
 import Colors from '../constants/Colors'
-import Font from '../constants/Font'
 
 const Drawer = createDrawerNavigator()
 
@@ -128,16 +123,16 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}: {navigat
                       }}
                       isFocused={selectedTab == constants.screens.home}
                   />
-                  {/* <CustomDrawerItem
-                      label={constants.screens.guard}
-                      icon = {addUser}
+                  <CustomDrawerItem
+                      label={constants.screens.messages}
+                      icon = {message}
                       onPress= {() =>{
                           console.log("Guard Page")
-                          setSelectedTab(constants.screens.guard)
+                          setSelectedTab(constants.screens.messages)
                           navigation.navigate("MainLayout")
                       }}
-                      isFocused = {selectedTab == constants.screens.guard}
-                  /> */}
+                      isFocused = {selectedTab == constants.screens.messages}
+                  />
                  {/*  <CustomDrawerItem
                       label={constants.screens.search}
                       icon = {search}

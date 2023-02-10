@@ -1,4 +1,5 @@
 const base: number = 8;
+const xsmall: number =12;
 const small: number = 14;
 const medium: number = 16;
 const large: number = 20;
