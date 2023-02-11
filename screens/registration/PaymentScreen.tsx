@@ -12,7 +12,9 @@ type Props = NativeStackScreenProps<RootStackParamList, "Payment">;
 
 const Payment: React.FC<Props> = ({ navigation: {navigate}}) => {
   return (
-    <Layout>
+    <Layout
+      title='Enter your details'
+    >
       <View  style={styles.paymentContainer}>
         {/*====== FORM  ===========*/}
         <View>

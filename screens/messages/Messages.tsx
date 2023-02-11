@@ -1,10 +1,10 @@
-import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import FontSize from '../constants/FontSize'
+import FontSize from '../../constants/FontSize'
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5"
-import Colors from '../constants/Colors'
-import Font from '../constants/Font'
-import Ionicons from "@expo/vector-icons/Ionicons"
+import Colors from '../../constants/Colors'
+import Font from '../../constants/Font'
+import { useNavigation } from '@react-navigation/native'
 const DATA = [
   {
     id: 1,
@@ -64,6 +64,13 @@ const DATA = [
   },
 ]
 
+interface MessageCardProps {
+  name: string ;
+  message: string;
+  newMessageNumber: string | boolean;
+  onPress: ()=>void;
+}
+
 const Badge = ({title}: {title: string | boolean}) => {
   return (
     <View style={styles.badgeContainer}>
@@ -72,9 +79,11 @@ const Badge = ({title}: {title: string | boolean}) => {
   )
 }
 
-const MessageCard = ({name , message, newMessageNumber}: {name: string, message: string, newMessageNumber: string | boolean }) => {
+const MessageCard: React.FC<MessageCardProps> = ({name , message, newMessageNumber, onPress}) => {
   return(
-    <View style={styles.cardContainer}>
+    <TouchableOpacity 
+      onPress={onPress }
+      style={styles.cardContainer}>
         <View style={{flexDirection: "row"}}>
           <View style={styles.circleImage}>
             <FontAwesome5 name = "user-alt" size={18} color="#FFFFFF" />
@@ -83,13 +92,14 @@ const MessageCard = ({name , message, newMessageNumber}: {name: string, message:
             {/* name */}
             <Text style={styles.title}>{name}</Text>
             {/* incoming message type */}
-            {/* <Text style={styles.description}>{message}</Text> */}
-            <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 5}}>
+            <Text style={styles.description}>{message}</Text>
+            {/* === DON'T DELETE THE BELOW COMPONENT */}
+            {/* <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 5}}> */}
               {/* icon */}
-              <Ionicons name='md-play-circle' color={Colors.gray} size={20}/>
+              {/* <Ionicons name='md-play-circle' color={Colors.gray} size={20}/> */}
               {/* text */}
-              <Text style={[styles.description, {marginLeft: 5}]}>Audio</Text>
-            </View>
+              {/* <Text style={[styles.description, {marginLeft: 5}]}>Audio</Text> */}
+            {/* </View> */}
           </View>
         </View>
 
@@ -102,18 +112,15 @@ const MessageCard = ({name , message, newMessageNumber}: {name: string, message:
           }
 
         </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
 const Messages = () => {
+  const navigation = useNavigation();
+
   return (
-    <ScrollView style={styles.container}>
-      {/* {
-        messages.map((message) => (
-          <MessageCard key={message.id}/>
-        ))
-      } */}        
+    <ScrollView style={styles.container}>      
       <FlatList
           data={DATA}
           keyExtractor={item => item.id.toString()}
@@ -123,6 +130,7 @@ const Messages = () => {
                 name = {item.name}
                 message={item.message !== null ? item.message : ""}
                 newMessageNumber={item.newMessage !== null && item.newMessage.toString()}
+                onPress={() => navigation.navigate("ViewMessage")}
             /> 
           }
         />

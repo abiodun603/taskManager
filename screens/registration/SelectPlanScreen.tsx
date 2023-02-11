@@ -64,7 +64,9 @@ const SelectPlan: React.FC<Props> = ({ navigation: {navigate}}) => {
   }
 
   return (
-    <Layout >
+    <Layout 
+      title='Select your One Reach plan'
+    >
       <View style={[styles.selectPlanContainer]}>
         <Text
           style={{

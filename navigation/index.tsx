@@ -15,6 +15,8 @@ import PickPilot from "../screens/registration/PickPilotScreen";
 import SelectPlan from "../screens/registration/SelectPlanScreen";
 import Payment from "../screens/registration/PaymentScreen";
 import CustomDrawer from "./CustomDrawer";
+import ViewMessage from "../screens/messages/ViewMessage";
+import NewMessage from "../screens/messages/NewMessage";
 
 const theme = {
   ...DefaultTheme,
@@ -53,49 +55,23 @@ export default function Navigation() {
       <Stack.Screen 
         name="ChoosePilot" 
         component={ChoosePilot} 
-      
-        options=  {
-          ()=>{
-            return { 
-              headerTitle: () => <Header  /> 
-            }
-          } 
-        }
       />  
         
       <Stack.Screen 
         name="PickPilot" 
         component={PickPilot} 
-        options=  {
-          ()=>{
-            return { 
-              headerTitle: () => <Header  /> 
-            }
-          } 
-        }
       />  
       <Stack.Screen 
         name="SelectPlan" 
         component={SelectPlan} 
-        // options=  {({navigation})=>{
-        //     return { 
-        //       headerTitle: () => <Header  navigation={navigation} /> 
-        //     }
-        //   } 
-        // }
       />
       <Stack.Screen 
         name="Payment" 
         component={Payment} 
-        options=  {
-          ()=>{
-            return { 
-              headerTitle: () => <Header  /> 
-            }
-          } 
-        }
       />
-      <Stack.Screen name="CustomDrawer" component={CustomDrawer} options={{headerShown: false}}/>  
+      <Stack.Screen name="CustomDrawer" component={CustomDrawer} />  
+      <Stack.Screen name="ViewMessage" component={ViewMessage} />  
+      <Stack.Screen name="NewMessage" component={NewMessage} />   
     </Stack.Navigator>
   );
 }

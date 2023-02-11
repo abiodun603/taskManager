@@ -19,6 +19,8 @@ export type RootStackParamList = {
   Payment: undefined;
   Active: undefined;
   CustomDrawer: undefined;
+  ViewMessage: undefined;
+  NewMessage: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

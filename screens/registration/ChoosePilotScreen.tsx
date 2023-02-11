@@ -82,7 +82,9 @@ const PilotNumber = ({pilotNumber, onPress=()=>{}}: pilotProps) => {
 
 const ChoosePilot: React.FC<Props> = ({ navigation: { navigate }}) => {
   return (
-    <Layout>
+    <Layout
+      title='Pick your One Reach number'
+    >
       <View style={{padding: 15,}}>
         {/* ====== Participant List =====*/}
         <FlatList

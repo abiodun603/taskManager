@@ -17,7 +17,7 @@ import DailPad from './DailPad'
 import Account from './Account'
 import Header from '../components/Header'
 import Colors from '../constants/Colors'
-import Messages from './Messages'
+import Messages from './messages/Messages'
 
 const TabButton = ({label, icon, isFocused,onPress, outerContainerStyle, innerContainerStyle}: {label: string, icon: any,isFocused: boolean, onPress: () => void, outerContainerStyle: any,  innerContainerStyle: any}) => {
     return (

@@ -14,7 +14,9 @@ const h = Dimensions.get("window").height
 
 const PickPilot: React.FC<Props> = ({ navigation}) => {
   return (
-    <Layout>
+    <Layout
+      title='Pick your One Reach number'
+    >
       <View style={styles.pickPilotContainer}>
         <View>
           <Text
