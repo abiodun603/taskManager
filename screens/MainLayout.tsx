@@ -68,10 +68,10 @@ const TabButton = ({label, icon, isFocused,onPress, outerContainerStyle, innerCo
     )
    
  }
-const curr__user = {
-    display__name : "Olatunji Abiodun",
-    user__image : require("../assets/images/profile/about1.jpeg")
-}
+// const curr__user = {
+//     display__name : "Olatunji Abiodun",
+//     user__image : require("../assets/images/profile/about1.jpeg")
+// }
 
 const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any, selectedTab: any, setSelectedTab: any}) => {
     const flatListRef = React.useRef<any>(null)

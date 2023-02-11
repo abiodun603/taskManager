@@ -10,7 +10,6 @@ import OtpScreen from "../screens/auth/OtpScreen";
 import ResetPassword from "../screens/auth/ResetPasswordScreen";
 import ResetSuccess from "../screens/auth/ResetSuccess";
 import ChoosePilot from "../screens/registration/ChoosePilotScreen";
-import Header from "../components/shared/Header";
 import PickPilot from "../screens/registration/PickPilotScreen";
 import SelectPlan from "../screens/registration/SelectPlanScreen";
 import Payment from "../screens/registration/PaymentScreen";
@@ -76,14 +75,3 @@ export default function Navigation() {
   );
 }
 
-// const Tab = createMaterialBottomTabNavigator();
-
-// function SettingsStackScreen() {
-//   return (
-//     <NavigationContainer>
-//       <Tab.Navigator>
-//         <Tab.Screen name="Active" component={ActiveScreen} />
-//       </Tab.Navigator>
-//     </NavigationContainer>
-//   );
-// }

@@ -14,10 +14,10 @@ import Colors from '../constants/Colors'
 
 const Drawer = createDrawerNavigator()
 
-const curr__user = {
-    display__name : "Olatunji Abiodun",
-    user__image : require("../assets/images/profile/about1.jpeg")
-}
+// const curr__user = {
+//     display__name : "Olatunji Abiodun",
+//     user__image : require("../assets/images/profile/about1.jpeg")
+// }
 
 
 const CustomDrawerItem = ({label, icon, onPress, isFocused}: {label: string, icon: ImageSourcePropType, onPress?: ()=>void, isFocused?: boolean}) => {
