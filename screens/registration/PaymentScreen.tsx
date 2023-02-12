@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Colors from '../../constants/Colors'
 import Font from '../../constants/Font'
@@ -15,7 +15,9 @@ const Payment: React.FC<Props> = ({ navigation: {navigate}}) => {
     <Layout
       title='Enter your details'
     >
-      <View  style={styles.paymentContainer}>
+      <ScrollView 
+        contentContainerStyle={{ flexGrow: 1 }} 
+        style={styles.paymentContainer}>
         {/*====== FORM  ===========*/}
         <View>
           <Text style={{color: Colors.gray, fontFamily: Font['inter-regular'], fontSize: FontSize.small}}>Account Information</Text>
@@ -51,7 +53,7 @@ const Payment: React.FC<Props> = ({ navigation: {navigate}}) => {
           <Button title="Activate your account" onPress={() => navigate("CustomDrawer")} />
         </View>
         {/* plan */}
-      </View>
+      </ScrollView>
     </Layout>
   )
 }

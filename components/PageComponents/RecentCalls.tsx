@@ -8,7 +8,7 @@ import Font from '../../constants/Font'
 
 
 
-const recentHistory = [
+export const recentHistory = [
   {
     id: "1",
     name: "Jane Ngozi",
@@ -87,9 +87,9 @@ const pendingTask = [
   }
 ]
 
-const CallRecord = ({time, name}: {time: string, name: string}) => {
+export const CallRecord = ({time, name}: {time: string, name: string}) => {
   return (
-    <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginVertical: 10}}>
+    <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginVertical: 12}}>
       {/* icon & name */}
       <View style={{flexDirection: "row", alignItems: "center"}}>
         <MaterialCommunityIcons 
@@ -106,7 +106,7 @@ const CallRecord = ({time, name}: {time: string, name: string}) => {
   )
 }
 
-export const RecentCalls = ({headerTitle} : {headerTitle: string}) => {
+export const RecentCalls = ({headerTitle, onPress} : {headerTitle: string, onPress?: ()=>void}) => {
   return (
     <View style={styles.container}>
       {/* header */}
@@ -117,7 +117,7 @@ export const RecentCalls = ({headerTitle} : {headerTitle: string}) => {
         <TouchableOpacity
           onPress={() => null}
         > 
-          <Text style={{color: Colors.primary, fontFamily: Font['inter-medium'], fontSize: FontSize.small}}>See all</Text>
+          <Text onPress={onPress} style={{color: Colors.primary, fontFamily: Font['inter-medium'], fontSize: FontSize.small}}>See all</Text>
         </TouchableOpacity>
       </View>
 

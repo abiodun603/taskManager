@@ -16,6 +16,7 @@ import Payment from "../screens/registration/PaymentScreen";
 import CustomDrawer from "./CustomDrawer";
 import ViewMessage from "../screens/messages/ViewMessage";
 import NewMessage from "../screens/messages/NewMessage";
+import RecentCalls from "../screens/RecentCalls";
 
 const theme = {
   ...DefaultTheme,
@@ -71,6 +72,8 @@ export default function Navigation() {
       <Stack.Screen name="CustomDrawer" component={CustomDrawer} />  
       <Stack.Screen name="ViewMessage" component={ViewMessage} />  
       <Stack.Screen name="NewMessage" component={NewMessage} />   
+      <Stack.Screen name="RecentCalls" component={RecentCalls} />   
+
     </Stack.Navigator>
   );
 }

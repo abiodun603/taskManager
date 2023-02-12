@@ -21,6 +21,7 @@ export type RootStackParamList = {
   CustomDrawer: undefined;
   ViewMessage: undefined;
   NewMessage: undefined;
+  RecentCalls: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
