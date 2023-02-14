@@ -122,18 +122,18 @@ const Messages = () => {
   return (
     <ScrollView style={styles.container}>      
       <FlatList
-          data={DATA}
-          keyExtractor={item => item.id.toString()}
-          renderItem={
-            ({item}) => 
-              <MessageCard  
-                name = {item.name}
-                message={item.message !== null ? item.message : ""}
-                newMessageNumber={item.newMessage !== null && item.newMessage.toString()}
-                onPress={() => navigation.navigate("ViewMessage")}
-            /> 
-          }
-        />
+        data={DATA}
+        keyExtractor={item => item.id.toString()}
+        renderItem={
+          ({item}) => 
+            <MessageCard  
+              name = {item.name}
+              message={item.message !== null ? item.message : ""}
+              newMessageNumber={item.newMessage !== null && item.newMessage.toString()}
+              onPress={() => navigation.navigate("ViewMessage")}
+          /> 
+        }
+      />
     </ScrollView>
   )
 }

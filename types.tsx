@@ -22,6 +22,11 @@ export type RootStackParamList = {
   ViewMessage: undefined;
   NewMessage: undefined;
   RecentCalls: undefined;
+  Call: undefined;
+  Contact: undefined;
+  AddContact: undefined;
+  ViewContact: undefined;
+  EditContact: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

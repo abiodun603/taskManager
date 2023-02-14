@@ -12,7 +12,7 @@ import { applyMiddleware, createStore } from 'redux';
 import rootReducer from './stores/rootReducer';
 import thunk from "redux-thunk"
 import { Provider } from 'react-redux';
-
+import { NativeBaseProvider, Box } from "native-base";
 const store = createStore(
   rootReducer,
   applyMiddleware(thunk)
@@ -23,10 +23,12 @@ export default function App() {
 
   return !fontsLoaded ? null : (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <StatusBar />
-        <Navigation />
-      </SafeAreaProvider>
+      <NativeBaseProvider>
+        <SafeAreaProvider>
+          <StatusBar style='auto' />
+          <Navigation />
+        </SafeAreaProvider>
+      </NativeBaseProvider>
     </Provider>
   );
 }

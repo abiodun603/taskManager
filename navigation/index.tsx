@@ -17,6 +17,11 @@ import CustomDrawer from "./CustomDrawer";
 import ViewMessage from "../screens/messages/ViewMessage";
 import NewMessage from "../screens/messages/NewMessage";
 import RecentCalls from "../screens/RecentCalls";
+import Call from "../screens/call/Call";
+import Contact from "../screens/contact/Contact";
+import AddContact from "../screens/contact/AddContact";
+import ViewContact from "../screens/contact/ViewContact";
+import EditContact from "../screens/contact/EditContact";
 
 const theme = {
   ...DefaultTheme,
@@ -73,7 +78,11 @@ export default function Navigation() {
       <Stack.Screen name="ViewMessage" component={ViewMessage} />  
       <Stack.Screen name="NewMessage" component={NewMessage} />   
       <Stack.Screen name="RecentCalls" component={RecentCalls} />   
-
+      <Stack.Screen name="Call" component={Call} />   
+      <Stack.Screen name="Contact" component={Contact} /> 
+      <Stack.Screen name="AddContact" component={AddContact} />  
+      <Stack.Screen name="ViewContact" component={ViewContact} />  
+      <Stack.Screen name="EditContact" component={EditContact} />  
     </Stack.Navigator>
   );
 }

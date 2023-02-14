@@ -11,10 +11,20 @@ import Header from './Header'
 // type ColorProp = {
 //   ColorName: ResponsiveValue<ColorType | (string & {}) | ILinearGradientProps>;
 // };
-const Layout = ({title, children, iconButton, onPress=() =>{} }: { children?: ReactNode, title: string, iconButton?: boolean, onPress?: ()=>void }) => {
+
+interface LayoutProps {
+  children?: ReactNode;
+  title: string;
+  iconButton?: boolean;
+  onPress?: ()=>void;
+  rightNavigation?: boolean | string;
+  rightNavPress?: () => void;
+}
+
+const Layout: React.FC<LayoutProps> = ({title, children, iconButton, rightNavigation, onPress=() =>{}, rightNavPress=()=>{} }) => {
    return (
     <SafeAreaView style={styles.selectPlanContainer}>
-      <Header title={title} iconButton={iconButton} onPress={onPress}/>
+      <Header title={title} iconButton={iconButton} onPress={onPress} rightNavigation={rightNavigation} rightNavPress={rightNavPress}/>
       {children}
     </SafeAreaView>
    )

@@ -6,21 +6,25 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Colors from '../../constants/Colors';
+import FontSize from '../../constants/FontSize';
 const w = Dimensions.get('window').width
 interface HeaderProps {
   title: string;
   onPress?: () => void;
   iconButton?: boolean;
+  rightNavigation?: boolean | string;
+  rightNavPress?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, onPress=()=>{}, iconButton}) => {
+const Header: React.FC<HeaderProps> = ({ title, onPress=()=>{},rightNavPress=()=>{}, iconButton, rightNavigation}) => {
   const navigation = useNavigation()
   // const openMenu = () => {
   //   navigation.openDrawer()
   // }
 
   return (
-    <SafeAreaView>
+    // <SafeAreaView>
       <View style={styles.header}>
         <Ionicons name="ios-arrow-back" size={28} onPress={() => navigation.goBack()} style={styles.icon} />
         <Text
@@ -29,7 +33,13 @@ const Header: React.FC<HeaderProps> = ({ title, onPress=()=>{}, iconButton}) => 
           {title}
         </Text>
         <View>
-          <Text></Text>
+          {rightNavigation && 
+          <TouchableOpacity
+            onPress={rightNavPress}
+          >
+            <Text style={{color: Colors.text, fontFamily: Font['inter-medium'], fontSize: FontSize.small}}>{rightNavigation}</Text>
+          </TouchableOpacity>
+          }
           {
             iconButton && 
             <TouchableOpacity
@@ -42,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ title, onPress=()=>{}, iconButton}) => 
         
         </View>
       </View>
-    </SafeAreaView>
+    // </SafeAreaView>
   )
 }
 
@@ -51,7 +61,7 @@ export default Header
 const styles = StyleSheet.create({
   header: {
     width: '100%',
-    // height: 50,
+    height: 50,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

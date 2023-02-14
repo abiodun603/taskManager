@@ -8,6 +8,7 @@ const xxLarge: number = 35;
 
 export default {
   base,
+  xsmall,
   small,
   medium,
   large,

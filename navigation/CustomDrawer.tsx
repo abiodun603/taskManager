@@ -5,6 +5,8 @@ import {COLORS, SIZES, FONTS} from "../assets"
 import cross from "../assets/images/icons/close.png"
 import home from "../assets/images/icons/home2.png"
 import message from "../assets/images/icons/message.png"
+import call from "../assets/images/icons/call.png";
+import contact from "../assets/images/icons/contact.png"
 import logout from "../assets/images/icons/logout.png"
 import {connect} from "react-redux"
 import { setSelectedTab } from '../stores/tab/tabAction'
@@ -64,22 +66,21 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}: {navigat
           >
               {/*================== CLOSE BUTTON ================== */}
               <View 
-                  style = {{
-                      alignItems: "flex-start",
-                      justifyContent: "center",
-                      marginTop: 20
-                  }}
+                style = {{
+                  alignItems: "flex-start",
+                  justifyContent: "center",
+                  marginTop: 20
+                }}
               >
-                  <TouchableOpacity
-                      style ={{
-                          alignItems: "center",
-                          justifyContent: "center"
-                      }}
-
-                      onPress={() => navigation.closeDrawer()}
-                  >
-                      <Image source={cross} style={{width: 15, height: 15, tintColor: COLORS.white}}/>
-                  </TouchableOpacity>
+                <TouchableOpacity
+                  style ={{
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}
+                  onPress={() => navigation.closeDrawer()}
+                >
+                  <Image source={cross} style={{width: 15, height: 15, tintColor: COLORS.white}}/>
+                </TouchableOpacity>
               </View>
               {/* ===================== PROFILE =================== */}
               <TouchableOpacity
@@ -127,22 +128,29 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}: {navigat
                       label={constants.screens.messages}
                       icon = {message}
                       onPress= {() =>{
-                          console.log("Guard Page")
+                          console.log("Message Sceeen")
                           setSelectedTab(constants.screens.messages)
                           navigation.navigate("MainLayout")
                       }}
                       isFocused = {selectedTab == constants.screens.messages}
                   />
-                 {/*  <CustomDrawerItem
-                      label={constants.screens.search}
-                      icon = {search}
-                      onPress= {() => {
-                          setSelectedTab(constants.screens.search)
-                          navigation.navigate("MainLayout")
-                      }}
-                      isFocused = {selectedTab == constants.screens.search}
+                  <CustomDrawerItem
+                    label={constants.screens.call}
+                    icon = {call}
+                    onPress= {() => {
+                        navigation.navigate("Call")
+                    }}
+                    isFocused = {selectedTab == constants.screens.call}
                   />
                   <CustomDrawerItem
+                    label={constants.screens.contact}
+                    icon = {contact}
+                    onPress= {() => {
+                        navigation.navigate("Contact")
+                    }}
+                    isFocused = {selectedTab == constants.screens.contact}
+                  />
+                 {/* <CustomDrawerItem
                       label={constants.screens.notification}
                       icon = {notification}
                       onPress= {() => {

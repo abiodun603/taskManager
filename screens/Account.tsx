@@ -1,10 +1,23 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
+const AccountCard = () => {
+  return (
+    <View>
+      {/* check box  */}
+      <View></View>
+      {/* accout info */}
+      <View></View>
+      {/* deactivate switch */}
+      
+    </View>
+  )
+}
+
 const Account = () => {
   return (
     <View>
-      <Text>Account</Text>
+      
     </View>
   )
 }

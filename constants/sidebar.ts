@@ -3,7 +3,9 @@ const screens = {
     home: "Home",
     messages: "Messages",
     pad: "Dial pad",
-    crm: "CRM"
+    crm: "CRM",
+    call: "Call",
+    contact: "Contact"
 }
 
 const sidebar__tabs = [
@@ -23,6 +25,14 @@ const sidebar__tabs = [
         id: 3,
         label: screens.crm
     },
+    {
+      id: 4,
+      label: screens.call
+    },
+    {
+      id: 5,
+      label: screens.contact
+    }
 ]
 
 const constants = { sidebar__tabs, screens };

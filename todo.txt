@@ -1,0 +1,5 @@
+1. Build a component that accomodate different background and text color
+   for the button component // DONE
+2. Build a component for the header component
+3. Apply BoxShadow where needed
+4. 
