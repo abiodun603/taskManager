@@ -2,7 +2,7 @@ import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from '
 import React from 'react'
 import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import Layout from '../../components/shared/Layout';
+import Layout from '../../layouts/Layout';
 import Font from '../../constants/Font';
 import FontSize from '../../constants/FontSize';
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5"
@@ -107,7 +107,7 @@ const MessageCard: React.FC<MessageCardProps> = ({name , location, group, phone,
                   let count = 0
 
                   return (
-                    <Text style={styles.description} className='mt-1'>{item}</Text>
+                    <Text key={i} style={styles.description} className='mt-1'>{item}</Text>
                   )
                 })
               }
@@ -141,7 +141,6 @@ const Contact: React.FC<Props> = ({ navigation: { navigate } }) => {
                 location={item.location}
                 group ={item.members}
                 divider
-                key={item.id}
             /> 
           }        
         />
@@ -155,7 +154,6 @@ const Contact: React.FC<Props> = ({ navigation: { navigate } }) => {
             ({item}) => 
               <MessageCard  
                 name = {item.name}
-                key={item.id}
                 phone = {item.phone}
                 onPress={() => navigate("ViewContact")}
             /> 

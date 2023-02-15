@@ -5,6 +5,11 @@ import FontAwesome5 from "@expo/vector-icons/FontAwesome5"
 import Colors from '../../constants/Colors'
 import Font from '../../constants/Font'
 import { useNavigation } from '@react-navigation/native'
+import Layout from '../../layouts/Layout'
+import { RootStackParamList } from "../../types";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+// type Props = NativeStackScreenProps<RootStackParamList, "m">;
+
 const DATA = [
   {
     id: 1,
@@ -116,25 +121,32 @@ const MessageCard: React.FC<MessageCardProps> = ({name , message, newMessageNumb
   )
 }
 
-const Messages = () => {
-  const navigation = useNavigation();
+const Messages = ({navigation}: {navigation: any}) => {
 
   return (
-    <ScrollView style={styles.container}>      
-      <FlatList
-        data={DATA}
-        keyExtractor={item => item.id.toString()}
-        renderItem={
-          ({item}) => 
-            <MessageCard  
-              name = {item.name}
-              message={item.message !== null ? item.message : ""}
-              newMessageNumber={item.newMessage !== null && item.newMessage.toString()}
-              onPress={() => navigation.navigate("ViewMessage")}
-          /> 
-        }
-      />
-    </ScrollView>
+    <Layout
+      title='All Messages'
+      navigation={navigation}
+      drawerNav
+      iconName="square-edit-outline"
+      onPress={()=> navigation.navigate("NewMessage")}
+    >
+      <ScrollView style={styles.container}>      
+        <FlatList
+          data={DATA}
+          keyExtractor={item => item.id.toString()}
+          renderItem={
+            ({item}) => 
+              <MessageCard  
+                name = {item.name}
+                message={item.message !== null ? item.message : ""}
+                newMessageNumber={item.newMessage !== null && item.newMessage.toString()}
+                onPress={() => navigation.navigate("ViewMessage")}
+            /> 
+          }
+        />
+      </ScrollView>
+    </Layout>
   )
 }
 

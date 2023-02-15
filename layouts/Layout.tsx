@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 // import { Box } from 'native-base'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
-import Header from './Header'
+import Header from './appHeader/Header'
 // import { ILinearGradientProps } from "native-base/lib/typescript/components/primitives/Box/types";
 // import {
 //   ResponsiveValue,
@@ -15,16 +15,20 @@ import Header from './Header'
 interface LayoutProps {
   children?: ReactNode;
   title: string;
-  iconButton?: boolean;
   onPress?: ()=>void;
   rightNavigation?: boolean | string;
   rightNavPress?: () => void;
+  navigation?: any;
+  drawerNav?:  boolean;
+  iconName? : any;
+  iconColor? : any;
 }
 
-const Layout: React.FC<LayoutProps> = ({title, children, iconButton, rightNavigation, onPress=() =>{}, rightNavPress=()=>{} }) => {
+const Layout: React.FC<LayoutProps> = ({title, children, iconColor,iconName , rightNavigation, navigation,drawerNav, onPress=() =>{}, rightNavPress=()=>{} }) => {
+
    return (
     <SafeAreaView style={styles.selectPlanContainer}>
-      <Header title={title} iconButton={iconButton} onPress={onPress} rightNavigation={rightNavigation} rightNavPress={rightNavPress}/>
+      <Header title={title} iconName={iconName} iconColor={iconColor} onPress={onPress} rightNavigation={rightNavigation} rightNavPress={rightNavPress} navigation={navigation} drawerNav={drawerNav}/>
       {children}
     </SafeAreaView>
    )

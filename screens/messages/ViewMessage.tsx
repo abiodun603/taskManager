@@ -2,7 +2,7 @@ import React from 'react'
 import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import Layout from '../../components/shared/Layout';
+import Layout from '../../layouts/Layout';
 import FontSize from '../../constants/FontSize';
 import Font from '../../constants/Font';
 import Colors from '../../constants/Colors';
@@ -25,8 +25,9 @@ const ViewMessage: React.FC<Props> = ({ navigation: { navigate } }) => {
   return (
     <Layout 
       title = "Jane Ngozi"
-      iconButton
       onPress={()=> navigate("NewMessage")}
+      iconName = "trash-can"
+      iconColor="#FF0000"
     >
       <View style={styles.container}>
         {/* time */}

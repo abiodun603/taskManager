@@ -10,8 +10,8 @@ import React from 'react'
 import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import Input from "../../components/Input";
-import Button from "../../components/Button";
-import Header from "../../components/AuthHeader";
+import Button from "../../components/CustomButton";
+import Header from "../../layouts/authHeader/AuthHeader";
 import FontSize from "../../constants/FontSize";
 import Colors from "../../constants/Colors";
 import Font from "../../constants/Font";

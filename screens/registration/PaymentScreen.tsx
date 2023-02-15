@@ -6,8 +6,8 @@ import FontSize from '../../constants/FontSize'
 import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import Input from '../../components/Input'
-import Button from '../../components/Button'
-import Layout from '../../components/shared/Layout'
+import Button from '../../components/CustomButton'
+import Layout from '../../layouts/Layout'
 type Props = NativeStackScreenProps<RootStackParamList, "Payment">;
 
 const Payment: React.FC<Props> = ({ navigation: {navigate}}) => {

@@ -1,10 +1,10 @@
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 // image
-import Logo from "../assets/logo.svg";
-import Colors from '../constants/Colors';
-import FontSize from '../constants/FontSize';
-import Font from '../constants/Font';
+import Logo from "../../assets/logo.svg";
+import Colors from '../../constants/Colors';
+import FontSize from '../../constants/FontSize';
+import Font from '../../constants/Font';
 const {height} = Dimensions.get("window");
 
 interface HeaderProps {

@@ -6,8 +6,8 @@ import {
 import React, { useState } from "react";
 import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import Button from "../../components/Button";
-import Header from "../../components/AuthHeader";
+import Button from "../../components/CustomButton";
+import Header from "../../layouts/authHeader/AuthHeader";
 import Spacing from "../../constants/Spacing";
 type Props = NativeStackScreenProps<RootStackParamList, "ResetSuccess">;
 

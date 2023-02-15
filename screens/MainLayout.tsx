@@ -14,7 +14,6 @@ import notification from "../assets/images/icons/bell.png"
 import Home from './Home'
 import Crm from './Crm'
 import DailPad from './DailPad'
-import Account from './Account'
 import Header from '../components/Header'
 import Colors from '../constants/Colors'
 import Messages from './messages/Messages'
@@ -192,49 +191,7 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
     },[selectedTab])
     return (
         <Animated.View style={{flex:1, backgroundColor: COLORS.white}}>
-            <Header
-                containerStyle = {{
-                    height: 50,
-                    paddingHorizontal: SIZES.padding,
-                    marginTop:15,
-                    alignItems: "center",
-                }}
-                title={selectedTab.toUpperCase()}
-                leftComponent = {
-                    <TouchableOpacity
-                        style={{
-                            width: 40,
-                            height: 40,
-                            alignItems: "center",
-                            justifyContent: "center",
-                            borderWidth: 1,
-                            borderColor: COLORS.lightGray,
-                            borderRadius: SIZES.radius
-                        }}
-                        onPress = {() => navigation.openDrawer()}
-                    >
-                        <Image source={menu}/>
-                    </TouchableOpacity>
-                }
 
-                // rightComponent = {
-                //     <TouchableOpacity
-                //         style= {{
-                //             borderRadius: SIZES.radius,
-                //             width: 40,
-                //             height: 40
-                //         }}
-                //     >
-                //     <Image source={curr__user.user__image} 
-                //         style={{
-                //             width: 40,
-                //             height: 40,
-                //             borderRadius: SIZES.radius,
-                //         }}
-                //     />
-                //     </TouchableOpacity>
-                // }
-            />
 
             <View style ={{flex:1}}>
                 <FlatList
@@ -255,10 +212,10 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
                                     width: SIZES.width
                                 }}
                             >
-                                {item.label === constants.screens.home && <Home/>}
-                                {item.label == constants.screens.messages && <Messages/>}
-                                {item.label == constants.screens.pad && <DailPad/>}
-                                {item.label == constants.screens.crm && <Crm/>}
+                                {item.label === constants.screens.home && <Home navigation={navigation}/>}
+                                {item.label == constants.screens.messages && <Messages navigation={navigation}/>}
+                                {item.label == constants.screens.pad && <DailPad navigation={navigation}/>}
+                                {item.label == constants.screens.crm && <Crm navigation={navigation}/>}
                             </View>
                         )
                     }}

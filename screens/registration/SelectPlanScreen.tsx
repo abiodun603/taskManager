@@ -6,9 +6,9 @@ import FontSize from '../../constants/FontSize';
 import Font from '../../constants/Font';
 import Colors from '../../constants/Colors';
 import Ionicons from "@expo/vector-icons/Ionicons"
-import Button from '../../components/Button';
+import Button from '../../components/CustomButton';
 import Spacing from '../../constants/Spacing';
-import Layout from '../../components/shared/Layout';
+import Layout from '../../layouts/Layout';
 type Props = NativeStackScreenProps<RootStackParamList, "SelectPlan">;
 
 const PlanList = () => {

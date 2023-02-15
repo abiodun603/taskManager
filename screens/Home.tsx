@@ -4,17 +4,23 @@ import { ScrollView } from 'react-native-gesture-handler'
 import FontSize from '../constants/FontSize'
 import {PendingTask, RecentCalls} from '../components/PageComponents/RecentCalls'
 import { useNavigation } from '@react-navigation/native'
+import Layout from '../layouts/Layout'
 
 
 
-const Home = () => {
-  const navigation = useNavigation()
+const Home = ({navigation}: {navigation: any}) => {
   return (
-    <ScrollView style={styles.container}>
-      <RecentCalls headerTitle='Recent Calls' onPress={()=>navigation.navigate("RecentCalls")}/>
-      <RecentCalls headerTitle='Recent Messages'/>
-      <PendingTask/>
-    </ScrollView>
+    <Layout
+      title='Welcome, John.'
+      navigation={navigation}
+      drawerNav
+    >
+      <ScrollView style={styles.container}>
+        <RecentCalls headerTitle='Recent Calls' onPress={()=>navigation.navigate("RecentCalls")}/>
+        <RecentCalls headerTitle='Recent Messages'/>
+        <PendingTask/>
+      </ScrollView>
+    </Layout>
   )
 }
 

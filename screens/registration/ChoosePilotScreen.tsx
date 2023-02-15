@@ -3,7 +3,7 @@ import React from 'react'
 import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { SelectList } from 'react-native-dropdown-select-list'
-import Layout from '../../components/shared/Layout';
+import Layout from '../../layouts/Layout';
 import NavButton from '../../components/NavButton';
 import { DATA1 } from '../../utils/dummy';
 type Props = NativeStackScreenProps<RootStackParamList, "ChoosePilot">;

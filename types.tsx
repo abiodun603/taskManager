@@ -19,6 +19,7 @@ export type RootStackParamList = {
   Payment: undefined;
   Active: undefined;
   CustomDrawer: undefined;
+  // Message: undefined;
   ViewMessage: undefined;
   NewMessage: undefined;
   RecentCalls: undefined;

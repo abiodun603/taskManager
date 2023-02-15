@@ -4,11 +4,11 @@ import {MaterialCommunityIcons } from '@expo/vector-icons';
 import { styled } from 'nativewind';
 import {Box} from "native-base"
 import Input from '../../components/Input';
-import Button from '../../components/Button';
+import Button from '../../components/CustomButton';
 import Colors from '../../constants/Colors';
 import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import Layout from '../../components/shared/Layout';
+import Layout from '../../layouts/Layout';
 type Props = NativeStackScreenProps<RootStackParamList, "AddContact">;
 
 const StyledView = styled(View)

@@ -2,11 +2,11 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import Layout from '../../components/shared/Layout';
+import Layout from '../../layouts/Layout';
 import { Box, Image } from 'native-base';
 import Input from '../../components/Input';
 import { styled } from 'nativewind';
-import Button from '../../components/Button';
+import Button from '../../components/CustomButton';
 import Colors from '../../constants/Colors';
 type Props = NativeStackScreenProps<RootStackParamList, "EditContact">;
 const StyledView = styled(View)

@@ -7,8 +7,8 @@ import FontSize from '../../constants/FontSize';
 import Font from '../../constants/Font';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Spacing from '../../constants/Spacing';
-import Button from '../../components/Button';
-import Layout from '../../components/shared/Layout';
+import Button from '../../components/CustomButton';
+import Layout from '../../layouts/Layout';
 type Props = NativeStackScreenProps<RootStackParamList, "PickPilot">;
 const h = Dimensions.get("window").height
 

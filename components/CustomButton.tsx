@@ -16,7 +16,7 @@ interface ButtonType {
   iconColor? : any;
 }
 
-const Button: React.FC<ButtonType> = ({title, buttonStyle,titleColor, buttonColor, textStyle,iconName, iconColor, onPress=()=>{}, ...props}) => {
+const CustomButton: React.FC<ButtonType> = ({title, buttonStyle,titleColor, buttonColor, textStyle,iconName, iconColor, onPress=()=>{}, ...props}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -36,7 +36,7 @@ const Button: React.FC<ButtonType> = ({title, buttonStyle,titleColor, buttonColo
   )
 }
 
-export default Button
+export default CustomButton
 
 const styles = StyleSheet.create({
   container: {

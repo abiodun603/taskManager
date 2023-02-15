@@ -3,6 +3,7 @@ import React from 'react'
 import FontSize from '../constants/FontSize'
 import Colors from '../constants/Colors'
 import Font from '../constants/Font'
+import Layout from '../layouts/Layout'
 
 const DATA = [
   {
@@ -50,26 +51,32 @@ const CrmCard: React.FC<CrmCardProps> = ({startTime, endTime, title, status}) =>
   )
 }
 
-const Crm = () => {
+const Crm = ({navigation}: {navigation: any}) => {
   return (
-    <ScrollView
-      style={styles.container}
+    <Layout
+      title='CRM'
+      navigation={navigation}
+      drawerNav
     >
-      <Text style={[styles.description]}>Apr 25</Text>
-      <FlatList
-          data={DATA}
-          keyExtractor={item => item.id.toString()}
-          renderItem={
-            ({item}) => 
-              <CrmCard  
-                title = {item.name}
-                status={item.status}
-                startTime={item.startTime}
-                endTime={item.endTime}
-            /> 
-          }
-        />
-    </ScrollView>
+      <View
+        style={styles.container}
+      >
+        <Text style={[styles.description]}>Apr 25</Text>
+        <FlatList
+            data={DATA}
+            keyExtractor={item => item.id.toString()}
+            renderItem={
+              ({item}) => 
+                <CrmCard  
+                  title = {item.name}
+                  status={item.status}
+                  startTime={item.startTime}
+                  endTime={item.endTime}
+              /> 
+            }
+          />
+      </View>
+    </Layout>
   )
 }
 

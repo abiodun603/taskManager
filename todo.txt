@@ -2,4 +2,10 @@
    for the button component // DONE
 2. Build a component for the header component
 3. Apply BoxShadow where needed
-4. 
+4. Make the circular avatar 
+
+
+
+//
+add another screen 
+1. 
