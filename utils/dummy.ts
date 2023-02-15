@@ -42,33 +42,47 @@ export const DATA1 = [
   },
 ];
 
-export const DATA2 = [
+export const DATA2:{
+  id: string,
+  name: string,
+  link: any,
+}[] = [
   {
     id: '1',
     name:  'Call Flow',
+    link: "Call"
   },
   {
     id: '2',
     name:  'Call Routing',
+    link: "Call"
   },
   {
     id: '3',
     name:  'Virtual Receptionist',
+    link: "Call"
   },
+
   {
     id: '4',
     name:  'Configure Calendar',
+    link: "Call"
+
   },
   {
     id: '5',
     name:  'Destination Numbers',
+    link: "Destination"
+
   },
   {
     id: '6',
     name:  'SIP Extensions',
+    link: "Sip"
   },
   {
     id: '7',
     name:  'Number Groups',
+    link: "Groups"
   }
 ];

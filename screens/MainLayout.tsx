@@ -1,12 +1,11 @@
 import React from 'react'
-import {Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View,Image,TouchableWithoutFeedback, FlatList } from 'react-native'
+import {StyleSheet, Text, View,Image,TouchableWithoutFeedback, FlatList } from 'react-native'
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated"
 import { COLORS, FONTS, SIZES } from '../assets'
 import {constants} from "../constants"
 import {connect} from "react-redux"
 import { setSelectedTab } from '../stores/tab/tabAction'
 import {LinearGradient} from 'expo-linear-gradient';// import { Search, Guard, Notification, Home } from '.'
-import menu from "../assets/images/icons/menu-left.png"
 import addUser from "../assets/images/icons/add-use.png"
 import home from "../assets/images/icons/home.png"
 import search from "../assets/images/icons/search.png"
@@ -14,7 +13,6 @@ import notification from "../assets/images/icons/bell.png"
 import Home from './Home'
 import Crm from './Crm'
 import DailPad from './DailPad'
-import Header from '../components/Header'
 import Colors from '../constants/Colors'
 import Messages from './messages/Messages'
 

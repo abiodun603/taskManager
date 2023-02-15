@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, View } from 'react-native'
 import React from 'react'
 import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -7,7 +7,6 @@ import Input from '../../components/Input';
 import { styled } from 'nativewind';
 import { Box } from 'native-base';
 import Button from '../../components/CustomButton';
-import Colors from '../../constants/Colors';
 type Props = NativeStackScreenProps<RootStackParamList, "ViewContact">;
 const StyledView = styled(View)
 

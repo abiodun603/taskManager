@@ -22,6 +22,14 @@ import Contact from "../screens/contact/Contact";
 import AddContact from "../screens/contact/AddContact";
 import ViewContact from "../screens/contact/ViewContact";
 import EditContact from "../screens/contact/EditContact";
+import Sip from "../screens/sip/Sip";
+import Calender from "../screens/calender/Calender";
+import AddSip from "../screens/sip/AddSip";
+import Destination from "../screens/destination/Destination";
+import AddDestination from "../screens/destination/AddDestination";
+import Numbers from "../screens/groups/Groups";
+import Groups from "../screens/groups/Groups";
+import AddGroups from "../screens/groups/AddGroups";
 
 const theme = {
   ...DefaultTheme,
@@ -57,23 +65,10 @@ export default function Navigation() {
       <Stack.Screen name="OtpScreen" component={OtpScreen} options={{headerShown: false}}/>  
       <Stack.Screen name="ResetPassword" component={ResetPassword} options={{headerShown: false}}/>  
       <Stack.Screen name="ResetSuccess" component={ResetSuccess} options={{headerShown: false}}/>  
-      <Stack.Screen 
-        name="ChoosePilot" 
-        component={ChoosePilot} 
-      />  
-        
-      <Stack.Screen 
-        name="PickPilot" 
-        component={PickPilot} 
-      />  
-      <Stack.Screen 
-        name="SelectPlan" 
-        component={SelectPlan} 
-      />
-      <Stack.Screen 
-        name="Payment" 
-        component={Payment} 
-      />
+      <Stack.Screen name="ChoosePilot" component={ChoosePilot} />  
+      <Stack.Screen name="PickPilot" component={PickPilot} />  
+      <Stack.Screen name="SelectPlan" component={SelectPlan} />
+      <Stack.Screen name="Payment" component={Payment} />
       <Stack.Screen name="CustomDrawer" component={CustomDrawer} />  
       <Stack.Screen name="ViewMessage" component={ViewMessage} />  
       <Stack.Screen name="NewMessage" component={NewMessage} />   
@@ -82,7 +77,14 @@ export default function Navigation() {
       <Stack.Screen name="Contact" component={Contact} /> 
       <Stack.Screen name="AddContact" component={AddContact} />  
       <Stack.Screen name="ViewContact" component={ViewContact} />  
-      <Stack.Screen name="EditContact" component={EditContact} />  
+      <Stack.Screen name="EditContact" component={EditContact} /> 
+      <Stack.Screen name="Sip" component={Sip} /> 
+      <Stack.Screen name="AddSip" component={AddSip} /> 
+      <Stack.Screen name="Destination" component={Destination} /> 
+      <Stack.Screen name="AddDestination" component={AddDestination} />
+      <Stack.Screen name="Groups" component={Groups} /> 
+      <Stack.Screen name="AddGroups" component={AddGroups} />
+      <Stack.Screen name="Calender" component={Calender} /> 
     </Stack.Navigator>
   );
 }

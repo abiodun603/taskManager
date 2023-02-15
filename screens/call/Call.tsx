@@ -18,10 +18,8 @@ const Call: React.FC<Props> = ({ navigation: {navigate}}) => {
         <FlatList
           data={DATA2}
           keyExtractor={item => item.id}
-          renderItem={({item}) => <NavButton  pilotNumber={item.name} onPress={() => navigate("PickPilot")} /> }
+          renderItem={({item}) => <NavButton  pilotNumber={item.name} onPress={() => navigate(item.link)} /> }
         />
-
-        
       </View>
     </Layout>
   )

@@ -27,10 +27,10 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({title, children, iconColor,iconName , rightNavigation, navigation,drawerNav, onPress=() =>{}, rightNavPress=()=>{} }) => {
 
    return (
-    <SafeAreaView style={styles.selectPlanContainer}>
+    <View style={styles.selectPlanContainer}>
       <Header title={title} iconName={iconName} iconColor={iconColor} onPress={onPress} rightNavigation={rightNavigation} rightNavPress={rightNavPress} navigation={navigation} drawerNav={drawerNav}/>
       {children}
-    </SafeAreaView>
+    </View>
    )
 }
 

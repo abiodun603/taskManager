@@ -19,7 +19,6 @@ export type RootStackParamList = {
   Payment: undefined;
   Active: undefined;
   CustomDrawer: undefined;
-  // Message: undefined;
   ViewMessage: undefined;
   NewMessage: undefined;
   RecentCalls: undefined;
@@ -28,6 +27,13 @@ export type RootStackParamList = {
   AddContact: undefined;
   ViewContact: undefined;
   EditContact: undefined;
+  Sip: undefined;
+  Calender: undefined;
+  AddSip: undefined;
+  Destination:undefined;
+  AddDestination: undefined;
+  Groups: undefined;
+  AddGroups: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

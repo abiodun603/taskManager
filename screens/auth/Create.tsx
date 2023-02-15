@@ -9,12 +9,12 @@ import React from "react";
 import { RootStackParamList } from "../../types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import Input from "../../components/Input";
-import Button from "../../components/CustomButton";
 import Header from "../../layouts/authHeader/AuthHeader";
 import FontSize from "../../constants/FontSize";
 import Colors from "../../constants/Colors";
 import Font from "../../constants/Font";
 import Spacing from "../../constants/Spacing";
+import CustomButton from "../../components/CustomButton";
 type Props = NativeStackScreenProps<RootStackParamList, "CreateAccount">;
 
 
@@ -45,7 +45,7 @@ const Create: React.FC<Props> = ({ navigation: { navigate } }) => {
             passwordIcon
           />
           <View style={{marginTop: Spacing*2}} />
-          <Button title="Sign up" onPress={() => navigate('Login')} />
+          <CustomButton title="Sign up" onPress={() => navigate('Login')} />
 
           <Text style={styles.text1}>
             By continuing, you agree to One Reach’s{'\n'} 
