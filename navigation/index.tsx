@@ -23,13 +23,18 @@ import AddContact from "../screens/contact/AddContact";
 import ViewContact from "../screens/contact/ViewContact";
 import EditContact from "../screens/contact/EditContact";
 import Sip from "../screens/sip/Sip";
-import Calender from "../screens/calender/Calender";
+import Calendar from "../screens/calendar/Calendar";
 import AddSip from "../screens/sip/AddSip";
 import Destination from "../screens/destination/Destination";
 import AddDestination from "../screens/destination/AddDestination";
-import Numbers from "../screens/groups/Groups";
 import Groups from "../screens/groups/Groups";
 import AddGroups from "../screens/groups/AddGroups";
+import Virtual from "../screens/virtual/Visual";
+import RouteVr from "../screens/virtual/RouteVr";
+import AddRoute from "../screens/virtual/AddRoute";
+import CallRoute from "../screens/call/CallRoute";
+import ConfigCalendar from "../screens/calendar/ConfigCalendar";
+import OptCalendar from "../screens/calendar/OptCalandar";
 
 const theme = {
   ...DefaultTheme,
@@ -84,7 +89,13 @@ export default function Navigation() {
       <Stack.Screen name="AddDestination" component={AddDestination} />
       <Stack.Screen name="Groups" component={Groups} /> 
       <Stack.Screen name="AddGroups" component={AddGroups} />
-      <Stack.Screen name="Calender" component={Calender} /> 
+      <Stack.Screen name="Calendar" component={Calendar} /> 
+      <Stack.Screen name="Virtual" component={Virtual} /> 
+      <Stack.Screen name="RouteVR" component={RouteVr} /> 
+      <Stack.Screen name="AddRoute" component={AddRoute} /> 
+      <Stack.Screen name="CallRoute" component={CallRoute} /> 
+      <Stack.Screen name="ConfigCalendar" component={ConfigCalendar} /> 
+      <Stack.Screen name="OptCalendar" component={OptCalendar} /> 
     </Stack.Navigator>
   );
 }

@@ -28,12 +28,18 @@ export type RootStackParamList = {
   ViewContact: undefined;
   EditContact: undefined;
   Sip: undefined;
-  Calender: undefined;
+  Calendar: undefined;
   AddSip: undefined;
   Destination:undefined;
   AddDestination: undefined;
   Groups: undefined;
   AddGroups: undefined;
+  Virtual: undefined;
+  RouteVR: undefined;
+  AddRoute: undefined;
+  CallRoute: undefined;
+  ConfigCalendar: undefined;
+  OptCalendar: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

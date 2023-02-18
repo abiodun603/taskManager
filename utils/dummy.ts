@@ -55,18 +55,18 @@ export const DATA2:{
   {
     id: '2',
     name:  'Call Routing',
-    link: "Call"
+    link: "CallRoute"
   },
   {
     id: '3',
     name:  'Virtual Receptionist',
-    link: "Call"
+    link: "Virtual"
   },
 
   {
     id: '4',
     name:  'Configure Calendar',
-    link: "Call"
+    link: "Calendar"
 
   },
   {
