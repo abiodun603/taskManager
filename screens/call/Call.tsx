@@ -8,17 +8,19 @@ import { DATA2 } from '../../utils/dummy';
 import NavButton from '../../components/NavButton';
 type Props = NativeStackScreenProps<RootStackParamList, "Call">;
 
-const Call: React.FC<Props> = ({ navigation: {navigate}}) => {
+const Call: React.FC<Props> = ({ navigation}) => {
   return (
     <Layout
       title='Call Routing Settings'
+      // navigation={navigation}
+      // drawerNav
     >
       <View style={{padding: 15,}}>
         {/* ====== Participant List =====*/}
         <FlatList
           data={DATA2}
           keyExtractor={item => item.id}
-          renderItem={({item}) => <NavButton  pilotNumber={item.name} onPress={() => navigate(item.link)} /> }
+          renderItem={({item}) => <NavButton  pilotNumber={item.name} onPress={() => navigation.navigate(item.link)} /> }
         />
       </View>
     </Layout>

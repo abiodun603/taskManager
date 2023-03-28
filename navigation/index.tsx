@@ -35,6 +35,11 @@ import AddRoute from "../screens/virtual/AddRoute";
 import CallRoute from "../screens/call/CallRoute";
 import ConfigCalendar from "../screens/calendar/ConfigCalendar";
 import OptCalendar from "../screens/calendar/OptCalandar";
+import AccountSetting from "../screens/account/AccountSetting";
+import CallFlow from "../screens/call/CallFlow";
+import Subscription from "../screens/account/Subscription";
+import Account from "../screens/account/Account";
+import BillDetails from "../screens/bill/BillDetails";
 
 const theme = {
   ...DefaultTheme,
@@ -96,6 +101,12 @@ export default function Navigation() {
       <Stack.Screen name="CallRoute" component={CallRoute} /> 
       <Stack.Screen name="ConfigCalendar" component={ConfigCalendar} /> 
       <Stack.Screen name="OptCalendar" component={OptCalendar} /> 
+      <Stack.Screen name="AccountSetting" component={AccountSetting} /> 
+      <Stack.Screen name="CallFlow" component={CallFlow} /> 
+      <Stack.Screen name="Subscription" component={Subscription} /> 
+      <Stack.Screen name="Account" component={Account} /> 
+      <Stack.Screen name="BillDetails" component={BillDetails} /> 
+
     </Stack.Navigator>
   );
 }

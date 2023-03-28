@@ -13,6 +13,7 @@ export type RootStackParamList = {
   OtpScreen: undefined;
   ResetPassword: undefined;
   ResetSuccess: undefined;
+  ViewResult: undefined;
   ChoosePilot: undefined;
   PickPilot: undefined;
   SelectPlan: undefined;
@@ -40,6 +41,12 @@ export type RootStackParamList = {
   CallRoute: undefined;
   ConfigCalendar: undefined;
   OptCalendar: undefined;
+  AccountSetting: undefined;
+  CallFlow: undefined;
+  Subscription: undefined;
+  Account: undefined;
+  BillDetails: undefined;
+  
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

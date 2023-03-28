@@ -9,13 +9,13 @@ import Font from '../../constants/Font';
 import Colors from '../../constants/Colors';
 import { SelectList } from 'react-native-dropdown-select-list';
 type Props = NativeStackScreenProps<RootStackParamList, "CallRoute">;
+
 const data = [
   {key:'1', value:'Ring on an extension', disabled:true},
   {key:'2', value:'Ring on a number'},
   {key:'3', value:'Ring group'},
   {key:'3', value:'Direct to virtual receptionist'},
   {key:'3', value:'Play a message'}
-
 ]  
 const CallRoute: React.FC<Props> = ({ navigation: { navigate } }) => {
   const [switchValue, setSwitchValue] = useState(false); 
@@ -57,7 +57,7 @@ const CallRoute: React.FC<Props> = ({ navigation: { navigate } }) => {
     </View>
 
     {/* bottomTab */}
-    <CustomRouteBottom title='Save group'  onPress={()=> navigate("Groups")}/>
+    {/* <CustomRouteBottom title='Save group'  onPress={()=> navigate("Groups")}/> */}
   </Layout>
   )
 }

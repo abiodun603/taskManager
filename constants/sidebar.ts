@@ -5,7 +5,8 @@ const screens = {
     pad: "Dial pad",
     crm: "CRM",
     call: "Call",
-    contact: "Contact"
+    contact: "Contact",
+    account: "Account"
 }
 
 const sidebar__tabs = [
@@ -32,6 +33,10 @@ const sidebar__tabs = [
     {
       id: 5,
       label: screens.contact
+    },
+    {
+      id: 6,
+      label: screens.account
     }
 ]
 

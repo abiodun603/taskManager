@@ -7,6 +7,7 @@ import home from "../assets/images/icons/home2.png"
 import message from "../assets/images/icons/message.png"
 import call from "../assets/images/icons/call.png";
 import contact from "../assets/images/icons/contact.png"
+import account from "../assets/images/icons/account.png"
 import logout from "../assets/images/icons/logout.png"
 import {connect} from "react-redux"
 import { setSelectedTab } from '../stores/tab/tabAction'
@@ -147,6 +148,14 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}: {navigat
                     icon = {contact}
                     onPress= {() => {
                         navigation.navigate("Contact")
+                    }}
+                    isFocused = {selectedTab == constants.screens.contact}
+                  />
+                   <CustomDrawerItem
+                    label={constants.screens.account}
+                    icon = {account}
+                    onPress= {() => {
+                        navigation.navigate("Account")
                     }}
                     isFocused = {selectedTab == constants.screens.contact}
                   />

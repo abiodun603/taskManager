@@ -50,7 +50,7 @@ export const DATA2:{
   {
     id: '1',
     name:  'Call Flow',
-    link: "Call"
+    link: "CallFlow"
   },
   {
     id: '2',
