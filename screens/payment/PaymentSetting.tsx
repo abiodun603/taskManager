@@ -84,6 +84,7 @@ const PaymentSetting: React.FC<Props> = ({ navigation: { navigate } }) => {
           title='Add Payment Method'
           titleColor="#344054"
           buttonStyle={{borderWidth:1, borderColor: "#D0D5DD", backgroundColor: "transparent", marginBottom: 10}}
+          onPress={() => navigate("AddPayment")}
         />
       </View>
   </Layout>
