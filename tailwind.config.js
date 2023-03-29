@@ -9,6 +9,7 @@ module.exports = {
 		extend: {
 			colors: {
 				kgray: '#808080',
+				kprimary: '#990099',
 			},
 		},
 	},

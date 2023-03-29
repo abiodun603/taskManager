@@ -27,7 +27,7 @@ export const DATA2:{
   {
     id: '2',
     name:  'Manage Payment Info',
-    link: "CallRoute"
+    link: "PaymentSetting"
   }
 ];
 const Subscription: React.FC<Props> = ({ navigation: { navigate } }) => {

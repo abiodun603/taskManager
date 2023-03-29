@@ -40,6 +40,8 @@ import CallFlow from "../screens/call/CallFlow";
 import Subscription from "../screens/account/Subscription";
 import Account from "../screens/account/Account";
 import BillDetails from "../screens/bill/BillDetails";
+import AddPayment from "../screens/payment/AddPayment";
+import PaymentSetting from "../screens/payment/PaymentSetting";
 
 const theme = {
   ...DefaultTheme,
@@ -106,7 +108,8 @@ export default function Navigation() {
       <Stack.Screen name="Subscription" component={Subscription} /> 
       <Stack.Screen name="Account" component={Account} /> 
       <Stack.Screen name="BillDetails" component={BillDetails} /> 
-
+      <Stack.Screen name="AddPayment" component={AddPayment} /> 
+      <Stack.Screen name="PaymentSetting" component={PaymentSetting} /> 
     </Stack.Navigator>
   );
 }

@@ -45,8 +45,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "yarn run prettier --write",
-      "yarn run eslint --fix"
+    
     ]
   },
   "devDependencies": {

@@ -46,7 +46,8 @@ export type RootStackParamList = {
   Subscription: undefined;
   Account: undefined;
   BillDetails: undefined;
-  
+  AddPayment: undefined;
+  PaymentSetting: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
