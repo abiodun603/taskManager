@@ -42,6 +42,7 @@ import Account from "../screens/account/Account";
 import BillDetails from "../screens/bill/BillDetails";
 import AddPayment from "../screens/payment/AddPayment";
 import PaymentSetting from "../screens/payment/PaymentSetting";
+import SelectPilotType from "../screens/registration/SelectPilotType";
 
 const theme = {
   ...DefaultTheme,
@@ -110,6 +111,7 @@ export default function Navigation() {
       <Stack.Screen name="BillDetails" component={BillDetails} /> 
       <Stack.Screen name="AddPayment" component={AddPayment} /> 
       <Stack.Screen name="PaymentSetting" component={PaymentSetting} /> 
+      <Stack.Screen name="SelectPilotType" component={SelectPilotType} /> 
     </Stack.Navigator>
   );
 }

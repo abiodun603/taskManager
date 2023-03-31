@@ -79,7 +79,7 @@ const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
           </View>
 
           <View style={{marginTop: Spacing*2}} />
-          <Button title="Sign in" onPress={() => navigate("ChoosePilot")} />
+          <Button title="Sign in" onPress={() => navigate("SelectPilotType")} />
 
           <Text style={styles.text3}>Don’t have an account?<Text style={styles.text4} onPress={() => navigate("CreateAccount")} > Sign up</Text>.</Text>
         </View>
