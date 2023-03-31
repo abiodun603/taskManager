@@ -27,7 +27,7 @@ export const DATA2:{
   },
   {
     id: '2',
-    name:  'Pin Lock',
+    name:  'Share pilot number',
     link: "Account"
   },
   {
@@ -52,10 +52,53 @@ const options = [
     option.id === id ? { ...option, checked } : { ...option, checked: false }  );
 }
 
-const Account: React.FC<Props> = ({ navigation: { navigate } }) => {
-  const [checkedList, setCheckedList] = useState(uncheckAll(options));
+export const AccountCard = () => {
   const [checked, setChecked] = React.useState('first');
   const [switchValue, setSwitchValue] = useState(false); 
+
+  const toggleSwitch = (value: boolean) => {
+    setSwitchValue(value);
+  }
+  return (
+    <View className={checked ? `flex-row h-[145px] space-x-2  w-full border border-[#990099] rounded-lg px-4 pt-4 mb-2` : `flex-row h-[145px] space-x-2  w-full border border-[#BFBFBF] rounded-lg px-4 pt-4 `} >
+    {/*  */}
+    <View className='w-full'>
+      {/* plan && price */}
+      <StyledView className='space-y-1'>
+        <Text className='text-[#808080] font-normal text-sm ml-11'>Active</Text>
+        <View>
+          <View className='flex flex-row items-center justify-between'>
+            {/* radio */}
+            <View className='flex flex-row items-center space-x-2'>
+              <View className= {checked ? 'h-[35px] w-[35px] bg-[#990099] rounded-full' : 'h-[35px] bg-[#BFBFBF] rounded-full'}>
+                <RadioButton
+                  value="first"
+                  status={ checked ? 'checked' : 'unchecked' }
+                  color= {Colors.background}
+                />
+              </View>
+              {/* number */}
+              <Text className='text-black font-semibold text-[16px]'>+1-202-555-0136</Text>
+            </View>
+
+            {/* switch */}
+            <Switch 
+              onValueChange={toggleSwitch}
+              value={switchValue}
+            />
+          </View>
+        </View>
+        
+        <Text className='text-[#808080] font-normal text-sm ml-11'>New Messages: 4</Text>
+        <Text className='text-[#808080] font-normal text-sm ml-11'>Missed calls: 4</Text>
+      </StyledView>
+    </View>
+  </View>
+  )
+}
+
+const Account: React.FC<Props> = ({ navigation: { navigate } }) => {
+  const [checkedList, setCheckedList] = useState(uncheckAll(options));
 
   function uncheckAll(options: any[]) {
     return options.map((option) => ({
@@ -64,50 +107,14 @@ const Account: React.FC<Props> = ({ navigation: { navigate } }) => {
     }));
   }
 
-  const toggleSwitch = (value: boolean) => {
-    setSwitchValue(value);
-  }
+
 
   return (
     <Layout
       title = "My Account"
   >
     <View style={styles.container}>
-      <View className={checked ? `flex-row h-[145px] space-x-2  w-full border border-[#990099] rounded-lg px-4 pt-4 mt-4` : `flex-row h-[145px] space-x-2  w-full border border-[#BFBFBF] rounded-lg px-4 pt-4 mt-4`} >
-        {/*  */}
-        <View className='w-full'>
-          {/* plan && price */}
-          <StyledView className='space-y-1'>
-            <Text className='text-[#808080] font-normal text-sm ml-11'>Active</Text>
-            <View>
-              <View className='flex flex-row items-center justify-between'>
-                {/* radio */}
-                <View className='flex flex-row items-center space-x-2'>
-                  <View className= {checked ? 'h-[35px] w-[35px] bg-[#990099] rounded-full' : 'h-[35px] bg-[#BFBFBF] rounded-full'}>
-                    <RadioButton
-                      value="first"
-                      status={ checked ? 'checked' : 'unchecked' }
-                      color= {Colors.background}
-                    />
-                  </View>
-                  {/* number */}
-                  <Text className='text-black font-semibold text-[16px]'>+1-202-555-0136</Text>
-                </View>
-
-                {/* switch */}
-                <Switch 
-                  onValueChange={toggleSwitch}
-                  value={switchValue}
-                />
-              </View>
-            </View>
-            
-            <Text className='text-[#808080] font-normal text-sm ml-11'>New Messages: 4</Text>
-            <Text className='text-[#808080] font-normal text-sm ml-11'>Missed calls: 4</Text>
-          </StyledView>
-        </View>
-      </View>
-
+      <AccountCard/>
       {/* Add One Reach Number */}
       <CustomButton
         title='Add One Reach number'
@@ -137,7 +144,7 @@ const Account: React.FC<Props> = ({ navigation: { navigate } }) => {
       
       {/* Add One Reach Number */}
       <CustomButton
-        title='Upgrade your plan'
+        title='Change your plan'
         titleColor="#344054"
         buttonStyle={{borderWidth:1, borderColor: "#D0D5DD", backgroundColor: "transparent", marginVertical: 15}}
       />

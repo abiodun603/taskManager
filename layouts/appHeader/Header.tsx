@@ -16,9 +16,6 @@ import menu from "../../assets/images/icons/menu-left.png"
 const w = Dimensions.get('window').width
 
 
-
-
-
 // 
 interface HeaderProps {
   title: string;

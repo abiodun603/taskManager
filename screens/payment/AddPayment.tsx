@@ -1,9 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Box, Divider } from 'native-base';
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
-import Entypo from "@expo/vector-icons/Entypo"
+import { Box } from 'native-base';
 import { styled } from 'nativewind';
 import { RootStackParamList } from '../../types';
 import Layout from '../../layouts/Layout';

@@ -41,3 +41,28 @@ add another screen
           )
         })
       }
+
+
+
+
+<Text className='text-[#808080] font-normal text-sm ml-11'>Active</Text>
+              <View>
+                <View className='flex flex-row items-center justify-between'>
+                  {/* radio */}
+                  <View className='flex flex-row items-center space-x-2'>
+                    <View className= {checked ? 'h-[35px] w-[35px] bg-[#990099] rounded-full' : 'h-[35px] bg-[#BFBFBF] rounded-full'}>
+                      <RadioButton
+                        value="first"
+                        status={ checked ? 'checked' : 'unchecked' }
+                        color= {Colors.background}
+                      />
+                    </View>
+                    {/* number */}
+                    <Text className='text-black font-semibold text-[16px]'>+1-202-555-0136</Text>
+                  </View>
+                  
+                </View>
+              </View>
+              
+              <Text className='text-[#808080] font-normal text-sm ml-11'>New Messages: 4</Text>
+              <Text className='text-[#808080] font-normal text-sm ml-11'>Missed calls: 4</Text>

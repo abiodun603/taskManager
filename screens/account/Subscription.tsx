@@ -59,7 +59,7 @@ const Subscription: React.FC<Props> = ({ navigation: { navigate } }) => {
       </View>
 
       <CustomButton
-        title='Upgrade your plan'
+        title='Change your plan'
         titleColor="#344054"
         buttonStyle={{borderWidth:1, borderColor: "#D0D5DD", backgroundColor: "transparent", marginBottom: 10}}
       />
