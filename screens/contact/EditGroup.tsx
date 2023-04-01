@@ -12,6 +12,7 @@ import FontSize from '../../constants/FontSize';
 import Colors from '../../constants/Colors';
 import Font from '../../constants/Font';
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
+import CustomRouteBottom from '../../components/CustomRouteBottom';
 type Props = NativeStackScreenProps<RootStackParamList, "EditGroup">;
 
 
@@ -38,6 +39,26 @@ const ContactGroupsData = [
   },
   {
     id:5,
+    name: "Toyosi Afolabi",
+    phone: "253 892 9234"
+  },
+  {
+    id: 6,
+    name: "Jane Ngozi",
+    phone: "112 346"
+  },
+  {
+    id: 7,
+    name: "Isaac & Co.",
+    phone: "01 392 9011"
+  },
+  {
+    id: 8,
+    name: "Kevin Kastor",
+    phone: "321 344 6000"
+  },
+  {
+    id:9,
     name: "Toyosi Afolabi",
     phone: "253 892 9234"
   },
@@ -70,7 +91,7 @@ const EditGroup: React.FC<Props> = ({ navigation: { navigate } }) => {
         placeholder='Food Vendor -Miami'
       />
 
-          {/* contacts */}
+      {/* contacts */}
       <View className='flex flex-row items-center justify-between my-2'>
         <Text style={[styles.description]}>Members</Text>
         <View className='flex flex-row items-center space-x-2'>
@@ -92,23 +113,8 @@ const EditGroup: React.FC<Props> = ({ navigation: { navigate } }) => {
             /> 
         }
       />
-
-    
-      {/* <StyledView className="flex flex-row  items-center space-x-2 mt-6">
-        <Box className="basis-1/2 w-full text-black">
-          <Button
-            title='Cancel'
-            buttonStyle={{backgroundColor: 'transparent', borderColor: "#B3B3B3", borderWidth: 1}}
-            titleColor= {Colors.gray}
-          />
-        </Box>
-        <Box className="basis-1/2 w-full text-black">
-          <Button
-            title='Save'
-          />
-        </Box>
-      </StyledView> */}
     </View>
+    <CustomRouteBottom title='save' onPress={()=>{null}} />
   </Layout>
   )
 }
@@ -120,6 +126,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     position: 'relative',
+    
   },
   circleAvatar: {
     width: 100,
