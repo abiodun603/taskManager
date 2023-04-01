@@ -33,7 +33,7 @@ const NewMessage: React.FC<Props> = ({ navigation: { navigate } }) => {
     >
       <View style={styles.container}>
         {/*  */}
-        <Input placeholder='Recipient' />
+        <Input placeholder='Recipient' suffixIcon />
         {/*  */}
         {/* ====== Chat Input Field ====== */}
         <ChatTab/>

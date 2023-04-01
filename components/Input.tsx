@@ -10,12 +10,13 @@ interface ExtraInputProps {
   password?: boolean;
   iconName?: ComponentProps<typeof MaterialCommunityIcons>['name'];
   passwordIcon?: ReactNode;
+  suffixIcon?: boolean;
   onFocus?: () => void;
 }
 
 type InputProps = TextInputProps & ExtraInputProps
 
-const Input: React.FC<InputProps> = ({ label, iconName, error, password, passwordIcon, placeholder, onFocus=() => {}, ...rest}) => {
+const Input: React.FC<InputProps> = ({ label, iconName, error, password, passwordIcon, placeholder, suffixIcon, onFocus=() => {}, ...rest}) => {
   const [isFocused, setIsFocused] = useState<boolean>(false)
   const [hidePassword, setHidePassword] = useState(password)
   return (
@@ -49,6 +50,14 @@ const Input: React.FC<InputProps> = ({ label, iconName, error, password, passwor
           style={{color: Colors.primary, flex: 1}}
           {...rest}
         />
+        {
+          suffixIcon && 
+          <MaterialCommunityIcons
+            name = "plus-circle"
+            color="#808080"
+            size={22}
+          />
+        }
         {
           passwordIcon && 
           <MaterialCommunityIcons
