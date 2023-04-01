@@ -75,7 +75,7 @@ const Badge = ({title}: {title: string | boolean}) => {
   )
 }
 
-const MessageCard: React.FC<MessageCardProps> = ({name , location, group, phone, onPress=()=>{}, divider}) => {
+export const MessageCard: React.FC<MessageCardProps> = ({name , location, group, phone, onPress=()=>{}, divider}) => {
   return(
     <TouchableOpacity 
       onPress={onPress }
@@ -85,7 +85,7 @@ const MessageCard: React.FC<MessageCardProps> = ({name , location, group, phone,
             <FontAwesome5 name = "user-alt" size={18} color="#FFFFFF" />
           </View>
           <View style={{marginLeft: 10}}>
-            {/* name && location */}
+            {/* name & & location */}
             <StyledView className='flex flex-row space-x-1'>
               <Text style={styles.title}>{name}</Text>
               {
@@ -140,13 +140,14 @@ const Contact: React.FC<Props> = ({ navigation: { navigate } }) => {
                 name = {item.name}
                 location={item.location}
                 group ={item.members}
+                onPress={() => navigate("GroupContact")}
                 divider
             /> 
           }        
         />
 
         {/* contacts */}
-        <Text style={[styles.description, , {marginTop: 20}]}>Contact groups</Text>
+        <Text style={[styles.description, , {marginTop: 20}]}>Contacts</Text>
         <FlatList
           data={ContactGroupsData}
           keyExtractor={item => item.id.toString()}
