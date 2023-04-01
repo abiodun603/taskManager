@@ -6,6 +6,7 @@ import Layout from '../../layouts/Layout';
 import Font from '../../constants/Font';
 import FontSize from '../../constants/FontSize';
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5"
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
 import Colors from '../../constants/Colors';
 import {  Divider } from 'native-base';
 import { styled } from 'nativewind';
@@ -65,6 +66,8 @@ interface MessageCardProps {
   phone?: string | boolean ;
   onPress?: ()=>void;
   divider?: boolean
+  iconName?: any;
+  iconColor? : any;
 }
 
 const Badge = ({title}: {title: string | boolean}) => {
@@ -75,7 +78,7 @@ const Badge = ({title}: {title: string | boolean}) => {
   )
 }
 
-export const MessageCard: React.FC<MessageCardProps> = ({name , location, group, phone, onPress=()=>{}, divider}) => {
+export const MessageCard: React.FC<MessageCardProps> = ({name , location, group, phone, iconName, iconColor, onPress=()=>{}, divider}) => {
   return(
     <TouchableOpacity 
       onPress={onPress }
@@ -115,6 +118,15 @@ export const MessageCard: React.FC<MessageCardProps> = ({name , location, group,
             </View>
           </View>
         </View>
+        {/*  */}
+        {
+          iconName && 
+          <TouchableOpacity
+            onPress={onPress}
+          >
+            <MaterialCommunityIcons name={iconName} size={25} color={iconColor}  />
+          </TouchableOpacity>
+        }
     </TouchableOpacity>
   )
 }
@@ -180,6 +192,7 @@ const styles = StyleSheet.create({
 
   // messsageCard
    cardContainer: {
+    display: 'flex',
     width: "100%",
     height: 63,
     flexDirection: "row",

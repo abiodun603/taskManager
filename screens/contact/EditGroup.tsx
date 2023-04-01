@@ -86,6 +86,8 @@ const EditGroup: React.FC<Props> = ({ navigation: { navigate } }) => {
             <MessageCard  
               name = {item.name}
               phone = {item.phone}
+              iconName={"trash-can"}
+              iconColor={"#FF0000"}
               onPress={() => navigate("ViewContact")}
             /> 
         }
