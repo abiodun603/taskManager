@@ -41,6 +41,11 @@ const AddPayment: React.FC<Props> = ({ navigation: { navigate } }) => {
       </StyledView>
 
       <Input
+        label = "Card Name"
+        placeholder='Enter card name'
+      />
+
+      <Input
         label = "Card Number"
         placeholder='0000 0000 0000 0000'
       />
@@ -64,6 +69,19 @@ const AddPayment: React.FC<Props> = ({ navigation: { navigate } }) => {
         title='Save'
         buttonStyle={{marginTop: 20}}
       />
+
+
+      {/*  */}
+      <View className='flex flex-row items-center justify-between mt-16'>
+        <View className='space-y-2'>
+          {/*  */}
+          <Text className='text-kblack2 text-[16px] font-semibold'>₦3,000/month </Text>
+          {/*  */}
+          <Text className='text-black text-sm font-normal'>Standard Plan</Text>
+        </View>
+
+        <Text className='text-kprimary text-[16px] font-normal'>Change</Text>
+      </View>
     </View>
   </Layout>
   )

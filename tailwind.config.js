@@ -8,6 +8,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
+				kblack2: '#1F1E1F',
 				kgray: '#808080',
 				kprimary: '#990099',
 			},
