@@ -44,6 +44,7 @@ import AddPayment from "../screens/payment/AddPayment";
 import PaymentSetting from "../screens/payment/PaymentSetting";
 import SelectPilotType from "../screens/registration/SelectPilotType";
 import GroupContact from "../screens/contact/GroupContact";
+import EditGroup from "../screens/contact/EditGroup";
 
 const theme = {
   ...DefaultTheme,
@@ -114,6 +115,7 @@ export default function Navigation() {
       <Stack.Screen name="PaymentSetting" component={PaymentSetting} /> 
       <Stack.Screen name="SelectPilotType" component={SelectPilotType} /> 
       <Stack.Screen name="GroupContact" component={GroupContact} /> 
+      <Stack.Screen name="EditGroup" component={EditGroup} /> 
     </Stack.Navigator>
   );
 }

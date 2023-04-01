@@ -11,7 +11,8 @@ import { MessageCard } from './Contact';
 import FontSize from '../../constants/FontSize';
 import Colors from '../../constants/Colors';
 import Font from '../../constants/Font';
-type Props = NativeStackScreenProps<RootStackParamList, "GroupContact">;
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
+type Props = NativeStackScreenProps<RootStackParamList, "EditGroup">;
 
 
 const ContactGroupsData = [
@@ -42,12 +43,12 @@ const ContactGroupsData = [
   },
 ]
 
-const GroupContact: React.FC<Props> = ({ navigation: { navigate } }) => {
+const EditGroup: React.FC<Props> = ({ navigation: { navigate } }) => {
   return (
     <Layout
-      title = "Food Vendors"
-      rightNavigation="Edit"
-      rightNavPress={() => navigate("EditGroup")}
+      title = "Edit Group"
+      iconName="plus"
+      rightNavPress={() => navigate("EditContact")}
   >
     <View style={styles.container}>
       {/* picture */}
@@ -70,7 +71,13 @@ const GroupContact: React.FC<Props> = ({ navigation: { navigate } }) => {
       />
 
           {/* contacts */}
-      <Text style={[styles.description, , {marginTop: 20}]}>Members</Text>
+      <View className='flex flex-row items-center justify-between my-2'>
+        <Text style={[styles.description]}>Members</Text>
+        <View className='flex flex-row items-center space-x-2'>
+          <MaterialCommunityIcons name="plus" size={18} color={Colors.primary}/>
+          <Text className='text-kprimary text-sm'>Add Member</Text>
+        </View>
+      </View>
       <FlatList
         data={ContactGroupsData}
         keyExtractor={item => item.id.toString()}
@@ -104,7 +111,7 @@ const GroupContact: React.FC<Props> = ({ navigation: { navigate } }) => {
   )
 }
 
-export default GroupContact
+export default EditGroup
 
 const styles = StyleSheet.create({
   container: {

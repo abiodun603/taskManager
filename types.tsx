@@ -50,6 +50,7 @@ export type RootStackParamList = {
   PaymentSetting: undefined;
   SelectPilotType: undefined;
   GroupContact: undefined;
+  EditGroup: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
