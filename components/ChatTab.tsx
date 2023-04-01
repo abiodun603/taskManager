@@ -37,7 +37,8 @@ const ChatTab = () => {
           marginTop: 8
         }}
       >
-        <FontAwesome name='send' style={{color: Colors.background, fontSize: 15}} />
+         <FontAwesome name='microphone' style={{color: Colors.background, fontSize: 15}} />
+        {/* <FontAwesome name='send' style={{color: Colors.background, fontSize: 15}} /> */}
       </TouchableOpacity>
     {/* </View> */}
   </View>
