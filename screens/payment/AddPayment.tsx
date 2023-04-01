@@ -8,6 +8,7 @@ import Layout from '../../layouts/Layout';
 import { SelectList } from 'react-native-dropdown-select-list';
 import Input from '../../components/Input';
 import CustomButton from '../../components/CustomButton';
+import CustomRouteBottom from '../../components/CustomRouteBottom';
 type Props = NativeStackScreenProps<RootStackParamList, "AddPayment">;
 const StyledView = styled(View)
 
@@ -65,11 +66,6 @@ const AddPayment: React.FC<Props> = ({ navigation: { navigate } }) => {
         </Box>
       </StyledView>
 
-      <CustomButton
-        title='Save'
-        buttonStyle={{marginTop: 20}}
-      />
-
 
       {/*  */}
       <View className='flex flex-row items-center justify-between mt-16'>
@@ -82,7 +78,9 @@ const AddPayment: React.FC<Props> = ({ navigation: { navigate } }) => {
 
         <Text className='text-kprimary text-[16px] font-normal'>Change</Text>
       </View>
+
     </View>
+    <CustomRouteBottom title='Proceed' onPress={()=> {null}}/>
   </Layout>
   )
 }
