@@ -8,6 +8,7 @@ import FontSize from '../../constants/FontSize';
 import Font from '../../constants/Font';
 import Colors from '../../constants/Colors';
 import Input from '../../components/Input';
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
 type Props = NativeStackScreenProps<RootStackParamList, "AddDestination">;
 
 const AddDestination: React.FC<Props> = ({ navigation: { navigate } }) => {
@@ -31,7 +32,11 @@ const AddDestination: React.FC<Props> = ({ navigation: { navigate } }) => {
         label="Phone Number"
         placeholder='Enter phone number'
       />
-    
+
+      <View className='flex flex-row items-center space-x-2'>
+        <MaterialCommunityIcons name="plus" size={18} color={Colors.primary}/>
+        <Text className='text-kprimary text-sm'>Add from phone contact</Text>
+      </View>
     </View>
 
     {/* bottomTab */}

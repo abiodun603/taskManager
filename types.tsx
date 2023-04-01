@@ -51,6 +51,7 @@ export type RootStackParamList = {
   SelectPilotType: undefined;
   GroupContact: undefined;
   EditGroup: undefined;
+  Numbers: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
