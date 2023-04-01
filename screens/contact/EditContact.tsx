@@ -8,15 +8,21 @@ import Input from '../../components/Input';
 import { styled } from 'nativewind';
 import Button from '../../components/CustomButton';
 import Colors from '../../constants/Colors';
+import { SelectList } from 'react-native-dropdown-select-list';
 type Props = NativeStackScreenProps<RootStackParamList, "EditContact">;
 const StyledView = styled(View)
 
+const data = [
+  {key:'1', value:'Food Vendors - Miami'}
+] 
+
 const EditContact: React.FC<Props> = ({ navigation: { navigate } }) => {
+  const [selected, setSelected] = React.useState("");
+
   return (
     <Layout
       title='Edit Contact'
     >
-      <View style={styles.container}>
       <View style={styles.container}>
         {/* picture */}
         <View style={[styles.circleAvatar, {marginVertical: 30}]}>
@@ -42,10 +48,18 @@ const EditContact: React.FC<Props> = ({ navigation: { navigate } }) => {
           placeholder='112 346'
         />
 
-        <Input
-          label = "Contact Group"
-          placeholder='Food Vendors - Miami'
-        />
+        <View className='flex flex-col mb-5'>
+          <Text className='my-2 font-normal text-sm text-black'>Contact Group</Text>
+          <SelectList 
+            setSelected={(val: React.SetStateAction<string>) => setSelected(val)} 
+            data={data} 
+            save="value"
+            boxStyles={{borderRadius:8, borderColor: "#BFBFBF"}}
+            search={false} 
+            placeholder='Food Vendors - Miami'
+            inputStyles={{color: '#808080'}}
+          />
+        </View>
 
         <StyledView className="flex flex-row  items-center space-x-2 mt-6">
           <Box className="basis-1/2 w-full text-black">
@@ -61,7 +75,6 @@ const EditContact: React.FC<Props> = ({ navigation: { navigate } }) => {
             />
           </Box>
         </StyledView>
-      </View>
       </View>
     </Layout>
   )

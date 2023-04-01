@@ -124,7 +124,7 @@ const Contact: React.FC<Props> = ({ navigation: { navigate } }) => {
     <Layout
       title='Contacts'
       rightNavigation="Add"
-      rightNavPress={()=> navigate("AddContact")}
+      rightNavPress={()=> navigate("Groups")}
     >
       <View
         style={styles.container}

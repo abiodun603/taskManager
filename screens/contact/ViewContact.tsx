@@ -19,7 +19,7 @@ const ViewContact: React.FC<Props> = ({ navigation: { navigate } }) => {
     >
       <View style={styles.container}>
         {/* picture */}
-        <View style={[styles.circleAvatar, {marginVertical: 30}]}>
+        <View style={[styles.circleAvatar]}>
           {/* icon if image is not present */}
           <Image
             className='h-full w-full rounded-full '
