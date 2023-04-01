@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Image } from 'native-base';
+import { Box, Image } from 'native-base';
 import { styled } from 'nativewind';
 import Layout from '../../layouts/Layout';
 import { RootStackParamList } from '../../types';
@@ -11,7 +11,10 @@ import { MessageCard } from './Contact';
 import FontSize from '../../constants/FontSize';
 import Colors from '../../constants/Colors';
 import Font from '../../constants/Font';
+import CustomButton from '../../components/CustomButton';
+import CustomFooterButton from '../../components/FooterButton';
 type Props = NativeStackScreenProps<RootStackParamList, "GroupContact">;
+const StyledView = styled(View)
 
 
 const ContactGroupsData = [
@@ -83,23 +86,39 @@ const GroupContact: React.FC<Props> = ({ navigation: { navigate } }) => {
             /> 
         }
       />
-
-    
-      {/* <StyledView className="flex flex-row  items-center space-x-2 mt-6">
-        <Box className="basis-1/2 w-full text-black">
-          <Button
-            title='Cancel'
-            buttonStyle={{backgroundColor: 'transparent', borderColor: "#B3B3B3", borderWidth: 1}}
-            titleColor= {Colors.gray}
-          />
-        </Box>
-        <Box className="basis-1/2 w-full text-black">
-          <Button
-            title='Save'
-          />
-        </Box>
-      </StyledView> */}
     </View>
+    <CustomFooterButton>
+        <StyledView className="flex flex-row  items-center space-x-1">
+          <Box className="basis-1/3 text-black">
+            <CustomButton
+              title='Message'
+              textStyle={{marginLeft: 8}}
+              buttonStyle={{flexDirection: "row"}}
+              iconName="chatbubble-ellipses-sharp"
+              iconColor="#FFFFFF"
+            />
+          </Box>
+          <Box className="basis-1/3  text-black">
+            <CustomButton
+              title='Call'
+              textStyle={{marginLeft: 8}}
+              buttonStyle={{flexDirection: "row"}}
+              iconName="ios-call"
+              iconColor="#FFFFFF"
+            />
+          </Box>
+          <Box className="basis-1/3  text-black">
+            <CustomButton
+              title='Delete'
+              titleColor="#FF0000"
+              textStyle={{marginLeft: 5}}
+              buttonStyle={{flexDirection: "row", backgroundColor: "transparent", borderWidth: 1, borderColor: "#FF0000"}}
+              iconName="ios-trash"
+              iconColor="#FF0000"
+            />
+          </Box>
+        </StyledView>
+      </CustomFooterButton>
   </Layout>
   )
 }

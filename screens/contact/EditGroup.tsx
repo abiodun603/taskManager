@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Image } from 'native-base';
-import { styled } from 'nativewind';
+import { Box, Image } from 'native-base';
+import {  styled } from 'nativewind';
 import Layout from '../../layouts/Layout';
 import { RootStackParamList } from '../../types';
 import Input from '../../components/Input';
@@ -12,8 +12,10 @@ import FontSize from '../../constants/FontSize';
 import Colors from '../../constants/Colors';
 import Font from '../../constants/Font';
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
-import CustomRouteBottom from '../../components/CustomRouteBottom';
+import CustomButton from '../../components/CustomButton';
+import CustomFooterButton from '../../components/FooterButton';
 type Props = NativeStackScreenProps<RootStackParamList, "EditGroup">;
+const StyledView = styled(View)
 
 
 const ContactGroupsData = [
@@ -114,7 +116,22 @@ const EditGroup: React.FC<Props> = ({ navigation: { navigate } }) => {
         }
       />
     </View>
-    <CustomRouteBottom title='save' onPress={()=>{null}} />
+    <CustomFooterButton>
+      <StyledView className="flex flex-row  items-center space-x-1">
+        <Box className="basis-1/2 w-full text-black">
+          <CustomButton
+            title='Cancel'
+            buttonStyle={{backgroundColor: 'transparent', borderColor: "#B3B3B3", borderWidth: 1}}
+            titleColor= {Colors.gray}
+          />
+        </Box>
+        <Box className="basis-1/2 w-full text-black">
+          <CustomButton
+            title='Save'
+          />
+        </Box>
+        </StyledView>
+    </CustomFooterButton>
   </Layout>
   )
 }
