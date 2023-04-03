@@ -43,7 +43,7 @@ const DATA =[
 const Calendar: React.FC<Props> = ({ navigation: { navigate } }) => {
   return (
     <Layout
-      title = "Configure Calendar"
+      title = "Time Schedule"
   >
     <View style={styles.container}>
       {/* if no sip extension exit */}

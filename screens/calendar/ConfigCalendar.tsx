@@ -50,12 +50,12 @@ const ConfigCalendar: React.FC<Props> = ({ navigation: { navigate } }) => {
   };
   return (
     <Layout
-      title = "Configure Calendar"
+      title = "Time Schedule"
     >
       <View style={styles.container}>
         {
           checkedList.map(({ id,value, name,description , checked}) => (
-            <View className='flex-row h-[98px] space-x-2  w-full border border-[#BFBFBF] rounded-lg px-4 pt-4 mt-4' key={id}>
+            <View className={checked ? 'flex-row h-[98px] border-kprimary space-x-2  w-full border  rounded-lg px-4 pt-4 mt-4' : 'flex-row h-[98px] space-x-2  w-full border  rounded-lg px-4 pt-4 mt-4 border-[#BFBFBF]'} key={id}>
               {/* radio button */}
               <View className= {checked ? 'h-[35px] bg-[#990099] rounded-full' : 'h-[35px] bg-[#BFBFBF] rounded-full'}>
                 <RadioButton

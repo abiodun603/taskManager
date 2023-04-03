@@ -9,7 +9,9 @@ import Font from '../../constants/Font';
 import Colors from '../../constants/Colors';
 import Input from '../../components/Input';
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
+import { TouchableOpacity } from 'react-native-gesture-handler';
 type Props = NativeStackScreenProps<RootStackParamList, "AddDestination">;
+
 
 const AddDestination: React.FC<Props> = ({ navigation: { navigate } }) => {
   const [switchValue, setSwitchValue] = useState(false); 
@@ -33,10 +35,14 @@ const AddDestination: React.FC<Props> = ({ navigation: { navigate } }) => {
         placeholder='Enter phone number'
       />
 
-      <View className='flex flex-row items-center space-x-2'>
+      <TouchableOpacity 
+        className='flex flex-row items-center space-x-2'
+        onPress={() => navigate("Numbers")}
+        // onPressIn={() = navigate("Numbers")}
+      >
         <MaterialCommunityIcons name="plus" size={18} color={Colors.primary}/>
         <Text className='text-kprimary text-sm'>Add from phone contact</Text>
-      </View>
+      </TouchableOpacity>
     </View>
 
     {/* bottomTab */}

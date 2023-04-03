@@ -39,8 +39,8 @@ const Create: React.FC<Props> = ({ navigation: { navigate } }) => {
             placeholder="Enter your phone number"
           />
           <Input
-            label="Password"
-            placeholder="Create a Password"
+            label="PIN"
+            placeholder="Create a PIN"
             password
             passwordIcon
           />
@@ -52,7 +52,7 @@ const Create: React.FC<Props> = ({ navigation: { navigate } }) => {
             <Text style={styles.text2}>Terms & Conditions</Text> and <Text style={styles.text2}>Privacy Policy.</Text>
           </Text>
 
-          <Text style={styles.text3}>Already have an account? <Text style={styles.text4} >Log in</Text>.</Text>
+          <Text onPress={() => navigate("Login")} style={styles.text3}>Already have an account? <Text style={styles.text4} >Log in</Text>.</Text>
         </View>
       </ScrollView>
     </SafeAreaView>

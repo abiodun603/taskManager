@@ -41,15 +41,12 @@ const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
             placeholder="Enter your phone number"
           />
           <Input
-            label="Password"
-            placeholder="Enter your Password"
+            label="PIN"
+            placeholder="Enter your PIN"
             password
             passwordIcon
           />
-           <Input
-            label="Account"
-            placeholder="Enter your account name"
-          />
+
           {/* <Input
             label="Phone number"
             placeholder="Enter your phone number"
