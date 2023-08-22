@@ -43,6 +43,7 @@ export const FONTS = {
     body2: { fontSize: SIZES.body2, lineHeight: 30 },
     body3: { fontSize: SIZES.body3, lineHeight: 22 },
     body4: {  fontSize: SIZES.body5, lineHeight: 22 },
+    body5: {  fontSize: SIZES.body5, lineHeight: 22 },
 };
 
 const appTheme = { COLORS, SIZES, FONTS };

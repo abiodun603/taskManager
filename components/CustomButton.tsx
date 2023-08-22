@@ -22,7 +22,7 @@ const CustomButton: React.FC<ButtonType> = ({title, buttonStyle,titleColor, butt
       onPress={onPress}
       style={{
         ...styles.container,
-        backgroundColor: buttonColor || Colors.primary,
+        backgroundColor: buttonColor || Colors.secondary,
         ...buttonStyle,
       }}
       
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent:"center",
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: 100,
     
   },
   title: {

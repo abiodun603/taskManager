@@ -1,14 +1,19 @@
-import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import FontSize from '../../constants/FontSize'
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5"
+import { FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
+
+// ** Constants 
 import Colors from '../../constants/Colors'
 import Font from '../../constants/Font'
-import { useNavigation } from '@react-navigation/native'
+import FontSize from '../../constants/FontSize'
+
+// ** Layouts
 import Layout from '../../layouts/Layout'
-import { RootStackParamList } from "../../types";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-// type Props = NativeStackScreenProps<RootStackParamList, "m">;
+
+// ** Third Pary
+import Ionicons from "@expo/vector-icons/Ionicons"
+import BottomSheet from '../../components/bottom-sheet/BottomSheet'
+import Input from '../../components/Input'
+import CustomButton from '../../components/CustomButton'
 
 const DATA = [
   {
@@ -79,7 +84,7 @@ interface MessageCardProps {
 const Badge = ({title}: {title: string | boolean}) => {
   return (
     <View style={styles.badgeContainer}>
-      <Text style={{fontFamily: Font['inter-regular'], color: Colors.background, fontSize: FontSize.xsmall}}>{title}</Text>
+      <Text style={{fontFamily: Font['inter-regular'], color: "#000000", fontSize: FontSize.xsmall}}>{title}</Text>
     </View>
   )
 }
@@ -89,9 +94,9 @@ const MessageCard: React.FC<MessageCardProps> = ({name , message, newMessageNumb
     <TouchableOpacity 
       onPress={onPress }
       style={styles.cardContainer}>
-        <View style={{flexDirection: "row"}}>
-          <View style={styles.circleImage}>
-            <FontAwesome5 name = "user-alt" size={18} color="#FFFFFF" />
+        <View className='flex-row items-center space-x-3'>
+          <View className='h-12 w-12 flex items-center justify-center rounded-2xl bg-ksecondary'>
+            <Text className='text-white text-sm font-bold'>A</Text>
           </View>
           <View style={{marginLeft: 10}}>
             {/* name */}
@@ -122,16 +127,32 @@ const MessageCard: React.FC<MessageCardProps> = ({name , message, newMessageNumb
 }
 
 const Messages = ({navigation}: {navigation: any}) => {
+  const [show, setShow ] = useState(false) 
 
+  const handleViewMessage = () => {
+    navigation.navigate("ViewMessage")
+    setShow(!show)
+  }
   return (
     <Layout
-      title='All Messages'
+      title='Chats'
       navigation={navigation}
       drawerNav
-      iconName="square-edit-outline"
-      onPress={()=> navigation.navigate("NewMessage")}
+      iconName="plus"
+      onPress={()=> setShow(true)}
     >
-      <ScrollView style={styles.container}>      
+      <ScrollView style={styles.container}> 
+        <View style={styles.inputContainer}>
+          <TextInput 
+            placeholder='Search chats'
+            placeholderTextColor="#4E444B" 
+            style={{color: '#4E444B', width: '90%'}}
+          /> 
+          <Ionicons
+            style = {{ fontSize: FontSize.large, color: '#4E444B'}}
+            name = "search"
+          />
+        </View>     
         <FlatList
           data={DATA}
           keyExtractor={item => item.id.toString()}
@@ -145,6 +166,28 @@ const Messages = ({navigation}: {navigation: any}) => {
             /> 
           }
         />
+        {/* BottomSheet component */}
+        <BottomSheet 
+          show={show}
+          onDismiss={() => {
+            setShow(false);
+          }}
+          height={0.28}
+          enableBackdropDismiss
+        >
+          <View>
+            <Text className='text-normal text-[28px] text-black '>Enter contact’s
+email address</Text>
+
+            <View className='mt-6'>
+              <Input
+                label="Email"
+                placeholder="Enter email address"
+              />
+              <CustomButton title="Submit" onPress={handleViewMessage}/>
+            </View>
+          </View>
+        </BottomSheet>
       </ScrollView>
     </Layout>
   )
@@ -164,20 +207,18 @@ const styles = StyleSheet.create({
     height: 63,
     flexDirection: "row",
     paddingHorizontal: 12,
-    borderWidth: 1,
     borderRadius: FontSize.base,
-    borderColor: "#EAECF0",
     justifyContent: "space-between",
     alignItems: 'center',
     marginVertical: 8
   },
   circleImage: {
-    width: 36,
-    height: 36,
+    width: 48,
+    height: 48,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: FontSize.large,
-    backgroundColor: "#E5E5E5"
+    borderRadius: FontSize.medium,
+    backgroundColor: Colors.secondary
   },
   title: {
     color: Colors.text,
@@ -195,7 +236,16 @@ const styles = StyleSheet.create({
     height: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.primary,
+    backgroundColor: "#FFD7F3",
     borderRadius: FontSize.xxLarge,
+  },
+  inputContainer:{
+    height: 56,
+    backgroundColor: '#EFE6E9',
+    flexDirection: "row",
+    paddingHorizontal: 15,
+    alignItems: "center",
+    borderRadius: 28,
+    flex: 1,
   }
 })

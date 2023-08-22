@@ -41,11 +41,11 @@ const PickPilot: React.FC<Props> = ({ navigation}) => {
         </View>
           {/* ===== ====== */}
         <Text
-        style={{
-          color: Colors.text,
-          fontSize: 24,
-          fontFamily: Font["inter-semiBold"],
-        }}
+          style={{
+            color: Colors.text,
+            fontSize: 24,
+            fontFamily: Font["inter-semiBold"],
+          }}
         >
           +1-202-555-0136
         </Text>
@@ -53,7 +53,7 @@ const PickPilot: React.FC<Props> = ({ navigation}) => {
         <View style={{width: "100%"}}>
           <Button title="Choose this number" onPress={() => navigation.navigate('SelectPlan')} />
           {/* ===== ======== */}
-          <TouchableOpacity onPress={() => navigation.goBack() } style={{marginTop: Spacing, flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
+          <TouchableOpacity onPress={() => navigation.goBack()} className='space-x-2 mt-10 flex flex-row items-center justify-center' >
             {/* icon */}
             <Ionicons name="ios-arrow-back" size={20} color="#000000" />
             <Text style={{color: Colors.text, fontFamily: Font["inter-regular"], fontSize: FontSize.small}}>Pick another number</Text>

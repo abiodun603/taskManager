@@ -1,19 +1,19 @@
-import React from 'react'
-import {  Text, View, Image, TouchableOpacity, ImageSourcePropType } from 'react-native'
+import React, { useState } from 'react'
+import {  Text, View, Image, TouchableOpacity, ImageSourcePropType, Modal } from 'react-native'
 import {createDrawerNavigator, DrawerContentScrollView} from "@react-navigation/drawer"
 import {COLORS, SIZES, FONTS} from "../assets"
-import cross from "../assets/images/icons/close.png"
-import home from "../assets/images/icons/home2.png"
-import message from "../assets/images/icons/message.png"
-import call from "../assets/images/icons/call.png";
-import contact from "../assets/images/icons/contact.png"
-import account from "../assets/images/icons/account.png"
+import document from "../assets/icons/document.png"
+import calendar from "../assets/icons/calendar.png"
+import setting from "../assets/icons/setting.png";
+import star from "../assets/icons/star.png"
+import support from "../assets/icons/support.png"
 import logout from "../assets/images/icons/logout.png"
 import {connect} from "react-redux"
 import { setSelectedTab } from '../stores/tab/tabAction'
 import { constants } from '../constants'
 import MainLayout from '../screens/MainLayout'
-import Colors from '../constants/Colors'
+import { Divider } from 'native-base'
+import SimpleModal from '../components/modal/Modal'
 
 const Drawer = createDrawerNavigator()
 
@@ -23,10 +23,16 @@ const Drawer = createDrawerNavigator()
 // }
 
 
-const CustomDrawerItem = ({label, icon, onPress, isFocused}: {label: string, icon: ImageSourcePropType, onPress?: ()=>void, isFocused?: boolean}) => {
+const CustomDrawerItem = ({label, count, icon, onPress, isFocused}: {label: string, count?: string, icon: ImageSourcePropType, onPress?: ()=>void, isFocused?: boolean}) => {
     // const navigation = useNavigation()
 
     return(
+
+      <View style={{
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "space-between"
+      }}>
         <TouchableOpacity
           style ={{
           flexDirection: "row",
@@ -44,19 +50,45 @@ const CustomDrawerItem = ({label, icon, onPress, isFocused}: {label: string, ico
             style={{
               width: 20,
               height: 20,
-              tintColor: isFocused ? COLORS.blue: COLORS.white
+              tintColor: isFocused ? COLORS.black: COLORS.black
             }}
           />
-          <Text style={{ marginLeft: 15, color: isFocused ? COLORS.blue : COLORS.white, ...FONTS.h3, letterSpacing: 0.9}}>{label}</Text>
+          <Text style={{ marginLeft: 15, color: isFocused ? COLORS.blue : "#4E444B", ...FONTS.h4, letterSpacing: 0.9}}>{label}</Text>
         </TouchableOpacity>
+        {count && <Text className='text-ktext text-sm font-medium'>{count}</Text>
+}
+      </View>
+       
     )
 }
 
+
+
 const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}: {navigation: any, selectedTab: any, setSelectedTab: any}) => {
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [chooseData, setChooseData] = useState()
+  const changeModalVisibility = (bool: boolean) => {
+    setIsModalVisible(bool)
+  }
+
+  const setData = (data: any) => {
+    setChooseData(data)
+  }
+
+  const handleLogout = () => {
+    // Perform logout logic here if needed
+    setIsModalVisible(false);
+    navigation.navigate('Login'); // Navigate to the login screen
+  };
+
+  const onCloseModal = () => {
+    setIsModalVisible(false);
+  }
+
   return (
       <DrawerContentScrollView
           scrollEnabled={true}
-          contentContainerStyle={{flex: 1, backgroundColor: Colors.primary}}
+          contentContainerStyle={{flex: 1, backgroundColor:"#FBF1F5"}}
       >
           <View
               style={{
@@ -73,7 +105,7 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}: {navigat
                   marginTop: 20
                 }}
               >
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   style ={{
                     alignItems: "center",
                     justifyContent: "center"
@@ -81,7 +113,7 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}: {navigat
                   onPress={() => navigation.closeDrawer()}
                 >
                   <Image source={cross} style={{width: 15, height: 15, tintColor: COLORS.white}}/>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
               </View>
               {/* ===================== PROFILE =================== */}
               <TouchableOpacity
@@ -112,53 +144,86 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}: {navigat
               <View 
                   style={{
                       flex: 1,
-                      marginTop: SIZES.padding
+                      marginTop: SIZES.padding,
+                      justifyContent: 'space-between',
+                      paddingBottom: 20
                   }}
               >
-                  <CustomDrawerItem
-                      label={constants.screens.home}
-                      icon = {home}
+                  <View>
+                    <CustomDrawerItem
+                      label={constants.screens.resources}
+                      icon = {document}
                       onPress= {() => {
-                          console.log("Home Page")
-                          setSelectedTab(constants.screens.home)
-                          navigation.navigate("MainLayout")
+                          setSelectedTab(constants.screens.resources)
+                          navigation.navigate("Resources")
                       }}
+                      count='100+'
                       isFocused={selectedTab == constants.screens.home}
-                  />
-                  <CustomDrawerItem
-                      label={constants.screens.messages}
-                      icon = {message}
+                    />
+                    <CustomDrawerItem
+                      label={constants.screens.events}
+                      icon = {calendar}
                       onPress= {() =>{
-                          console.log("Message Sceeen")
-                          setSelectedTab(constants.screens.messages)
-                          navigation.navigate("MainLayout")
+                          setSelectedTab(constants.screens.events)
+                          navigation.navigate("Events")
                       }}
-                      isFocused = {selectedTab == constants.screens.messages}
-                  />
-                  <CustomDrawerItem
-                    label={constants.screens.call}
-                    icon = {call}
-                    onPress= {() => {
-                        navigation.navigate("Call")
-                    }}
-                    isFocused = {selectedTab == constants.screens.call}
-                  />
-                  <CustomDrawerItem
-                    label={constants.screens.contact}
-                    icon = {contact}
-                    onPress= {() => {
-                        navigation.navigate("Contact")
-                    }}
-                    isFocused = {selectedTab == constants.screens.contact}
-                  />
-                   <CustomDrawerItem
-                    label={constants.screens.account}
-                    icon = {account}
-                    onPress= {() => {
-                        navigation.navigate("Account")
-                    }}
-                    isFocused = {selectedTab == constants.screens.contact}
-                  />
+                      count='8'
+                      isFocused = {selectedTab == constants.screens.settings}
+                    />
+                    <CustomDrawerItem
+                      label={constants.screens.settings}
+                      icon = {setting}
+                      onPress= {() => {
+                          navigation.navigate("Settings")
+                      }}
+                      isFocused = {selectedTab == constants.screens.settings}
+                    />
+                  </View>
+
+                  <View>
+                    <Divider style={{marginBottom: 20}}/>
+
+                    <CustomDrawerItem
+                      label={constants.screens.rate}
+                      icon = {star}
+                      onPress= {() => {
+                          navigation.navigate("Contact")
+                      }}
+                      isFocused = {selectedTab == constants.screens.contact}
+                    />
+                    <CustomDrawerItem
+                      label={constants.screens.support}
+                      icon = {support}
+                      onPress= {() => {
+                          navigation.navigate("Account")
+                      }}
+                      isFocused = {selectedTab == constants.screens.contact}
+                    />
+                    <CustomDrawerItem
+                      label="Logout"
+                      icon = {logout}
+                      onPress={() => 
+                        changeModalVisibility(!isModalVisible)
+                        //  navigation.navigate("Login")
+                      }
+                    />
+                    <Modal
+                      transparent = {true}
+                      animationType='fade'
+                      visible = {isModalVisible}
+                      onRequestClose={() => changeModalVisibility(false)}
+
+                    >
+                      <SimpleModal
+                        changeModalVisible = {changeModalVisibility}
+                        setData = {setData}
+                        onLogOUt = {handleLogout}
+                        onCloseModal = {onCloseModal}
+                      />
+                    </Modal>
+                  </View>
+                 
+                   
                  {/* <CustomDrawerItem
                       label={constants.screens.notification}
                       icon = {notification}
@@ -169,16 +234,16 @@ const CustomDrawerContent = ({navigation, selectedTab, setSelectedTab}: {navigat
                       isFocused = {selectedTab == constants.screens.notification}
                   /> */}
               </View>
-              {/* ======= LOG OUT ============ */}
-              <View>
-                  <CustomDrawerItem
-                      label="Logout"
-                      icon = {logout}
-                      onPress={() => {
-                         navigation.navigate("CreateAccount")
-                      }}
-                  />
-              </View>
+              
+              {/* <Modal
+                transparent = {true}
+                animationType='fade'
+                visible = {isModalVisible}
+                onRequestClose={() => changeModalVisible(false)}
+              >
+
+              </Modal> */}
+              
           </View>
       </DrawerContentScrollView>
   )
@@ -189,7 +254,7 @@ const CustomDrawer = ({selectedTab, setSelectedTab}: {selectedTab: any, setSelec
       <View
           style={{
               flex: 1,
-              backgroundColor: Colors.primary,
+              backgroundColor: "#FBF1F5",
           }}
       >
           <Drawer.Navigator

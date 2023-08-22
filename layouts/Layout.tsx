@@ -17,18 +17,20 @@ interface LayoutProps {
   title: string;
   onPress?: ()=>void;
   rightNavigation?: boolean | string;
+  profileIcon?: boolean
   rightNavPress?: () => void;
   navigation?: any;
   drawerNav?:  boolean;
   iconName? : any;
   iconColor? : any;
+  extraOneIcon?: any
 }
 
-const Layout: React.FC<LayoutProps> = ({title, children, iconColor,iconName , rightNavigation, navigation,drawerNav, onPress=() =>{}, rightNavPress=()=>{} }) => {
+const Layout: React.FC<LayoutProps> = ({title,profileIcon, extraOneIcon,  children, iconColor,iconName , rightNavigation, navigation,drawerNav, onPress=() =>{}, rightNavPress=()=>{} }) => {
 
    return (
     <View style={styles.selectPlanContainer}>
-      <Header title={title} iconName={iconName} iconColor={iconColor} onPress={onPress} rightNavigation={rightNavigation} rightNavPress={rightNavPress} navigation={navigation} drawerNav={drawerNav}/>
+      <Header title={title} iconName={iconName} extraOneIcon={extraOneIcon} iconColor={iconColor} profileIcon = {profileIcon} onPress={onPress} rightNavigation={rightNavigation} rightNavPress={rightNavPress} navigation={navigation} drawerNav={drawerNav}/>
       {children}
     </View>
    )

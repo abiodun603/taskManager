@@ -7,12 +7,34 @@ declare global {
 }
 
 export type RootStackParamList = {
+  Welcome: undefined,
+  AccountOption: undefined,
+  AccountSuccess: undefined,
+  IdentifySuccess: undefined,
+  Identification: undefined,
   Login: undefined;
   CreateAccount: undefined;
+  SetPassword: undefined;
+  EmailVerification: undefined;
   ForgetPassword: undefined;
+  ResetCode: undefined;
+  PdfPreview: undefined;
   OtpScreen: undefined;
   ResetPassword: undefined;
   ResetSuccess: undefined;
+  ProfileNotification: undefined;
+  ProfilePreview: undefined;
+  EditProfile: undefined;
+  Events: undefined;
+  Resources: undefined;
+  TopNavPanel: undefined;
+  Settings:undefined;
+  About: undefined;
+  SavedItems: undefined;
+  CommunityInvites: undefined;
+  Notification: undefined;
+  Message: undefined;
+  Language: undefined;
   ViewResult: undefined;
   ChoosePilot: undefined;
   PickPilot: undefined;
@@ -52,6 +74,7 @@ export type RootStackParamList = {
   GroupContact: undefined;
   EditGroup: undefined;
   Numbers: undefined;
+  Verification: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

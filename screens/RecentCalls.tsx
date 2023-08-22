@@ -1,4 +1,4 @@
-import { StyleSheet, Text, ScrollView, View } from 'react-native'
+import { StyleSheet, ScrollView, View } from 'react-native'
 import React from 'react'
 import Layout from '../layouts/Layout'
 import { CallRecord, recentHistory } from '../components/PageComponents/RecentCalls'

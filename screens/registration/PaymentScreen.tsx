@@ -38,6 +38,13 @@ const Payment: React.FC<Props> = ({ navigation: {navigate}}) => {
             label="Company Name"
             placeholder="Enter your company name"
           />
+
+          <Input
+            label="Welcome Message"
+            placeholder="Enter your company name"
+          />  
+
+         
           <Text style={{color: Colors.gray, fontFamily: Font['inter-regular'], fontSize: FontSize.small}}>Summary</Text>
           <View style={{marginVertical: 10}} />
           <Input
@@ -63,6 +70,7 @@ export default Payment
 const styles = StyleSheet.create({
   paymentContainer: { 
     flex: 1,
-    padding: 30
+    paddingHorizontal: 30,
+    marginBottom: 40
   }
 })

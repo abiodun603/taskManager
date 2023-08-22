@@ -1,7 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
-import Entypo from '@expo/vector-icons/Entypo';
-import * as SplashScreen from 'expo-splash-screen';
+import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import Navigation from './navigation';
@@ -13,25 +10,37 @@ import rootReducer from './stores/rootReducer';
 import thunk from "redux-thunk"
 import { Provider } from 'react-redux';
 import { NativeBaseProvider, Box } from "native-base";
-import { Provider as PaperProvider } from 'react-native-paper';
+import Toast from 'react-native-toast-message';
+import {DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 const store = createStore(
   rootReducer,
   applyMiddleware(thunk)
 )
 
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    underlineColor: 'transparent', // Set underline color to transparent
+  },
+};
+
+
 export default function App() {
   const [fontsLoaded] = useFonts(fonts);
 
   return !fontsLoaded ? null : (
+    
     <Provider store={store}>
-       <PaperProvider>
-          <NativeBaseProvider>
-            <SafeAreaProvider>
-              <StatusBar style='auto' />
-              <Navigation />
-            </SafeAreaProvider>
-          </NativeBaseProvider>
-       </PaperProvider>
+      <NativeBaseProvider>
+        <SafeAreaProvider>
+          <PaperProvider theme={theme}>
+            <StatusBar style='auto' />
+            <Navigation />
+            <Toast/>
+          </PaperProvider>
+        </SafeAreaProvider>
+      </NativeBaseProvider>
     </Provider>
   );
 }

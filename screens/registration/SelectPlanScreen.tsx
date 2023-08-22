@@ -99,6 +99,7 @@ const SelectPlan: React.FC<Props> = ({ navigation: {navigate}}) => {
           <Switch 
             onValueChange={toggleSwitch}
             value={switchValue}
+            trackColor={{false: '#767577', true: Colors.primary}}
           />
         </View>
         {/* ====== Plans Options ========= */}

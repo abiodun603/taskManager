@@ -1,43 +1,139 @@
-import { StyleProp, StyleSheet, Text, TextInput, TextInputProps, View, ViewStyle } from 'react-native'
+import {StyleSheet, Text, TextInput, TextInputProps, View } from 'react-native'
 import React, { ComponentProps, ReactNode, useState } from 'react'
 import Colors from '../constants/Colors';
 import FontSize from '../constants/FontSize';
+
+
+// ** Third Party
+import {  Controller, useFormContext } from 'react-hook-form';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import Font from '../constants/Font';
+
+
+
 interface ExtraInputProps {
-  label?: ReactNode;
-  error?: string;
-  password?: boolean;
-  iconName?: ComponentProps<typeof MaterialCommunityIcons>['name'];
-  passwordIcon?: ReactNode;
-  suffixIcon?: boolean;
-  onFocus?: () => void;
+    label?: React.ReactNode;
+    error?: string;
+    password?: boolean;
+    iconName?: string;
+    passwordIcon?: React.ReactNode;
+    suffixIcon?: boolean;
+    onFocus?: () => void;
+    name: string;
+    placeholder: string;  
+    rules?: object; // Add the rules prop
 }
 
 type InputProps = TextInputProps & ExtraInputProps
 
-const Input: React.FC<InputProps> = ({ label, iconName, error, password, passwordIcon, placeholder, suffixIcon, onFocus=() => {}, ...rest}) => {
-  const [isFocused, setIsFocused] = useState<boolean>(false)
-  const [hidePassword, setHidePassword] = useState(password)
-  return (
-    <View style={{marginBottom: 20}}>
-      <Text style={[styles.label]}>{label}</Text>
-      <View style={[styles.inputContainer, {
-        borderColor: error
-        ? Colors.red
-        : isFocused
-        ? Colors.darkBlue
-        : "#BFBFBF"
-        
-      }]}>
-        <MaterialCommunityIcons 
-          name = {iconName}
-          size={24} 
-          style = {{ fontSize: FontSize.large, color: Colors.primary, marginRight: 10 }}
-        />
+const Input: React.FC<InputProps> = ({
+  label,
+  iconName,
+  error,
+  password,
+  passwordIcon,
+  placeholder,
+  suffixIcon,
+  onFocus = () => {},
+  name,
+  rules,
+  ...rest
+}) => {
+  const { control, formState, setValue, trigger } = useFormContext();
+  const { errors } = formState;
+  const [isFocused, setIsFocused] = React.useState<boolean>(false);
+  const [hidePassword, setHidePassword] = React.useState<boolean | undefined>(password);
 
-        <TextInput 
+  const hasError = errors[name] !== undefined;
+
+  return (
+    <Controller
+      control={control}
+      name={name}
+      rules={rules}
+      render={({ field }) => (
+        <View style={{ marginBottom: 20 }}>
+          <View
+            style={[
+              styles.inputContainer,
+              {
+                borderColor: error
+                  ? Colors.red
+                  : isFocused
+                  ? Colors.darkBlue
+                  : '#80747B',
+              },
+            ]}
+          >
+            <Text style={[styles.label]}>{label}</Text>
+            <TextInput
+              secureTextEntry={hidePassword}
+              autoCapitalize='none'
+              autoCorrect={false}
+              onChangeText={field.onChange}
+              onBlur={() => {
+                field.onBlur();
+                trigger(name);
+              }}
+              onFocus={() => {
+                onFocus();
+                setIsFocused(true);
+              }}
+              placeholder={placeholder}
+              style={{ color: Colors.primary, flex: 1 }}
+              value={field.value}
+            />
+            {suffixIcon && (
+              <MaterialCommunityIcons
+                name="plus-circle"
+                color="#808080"
+                size={22}
+              />
+            )}
+            {passwordIcon && (
+              <MaterialCommunityIcons
+                onPress={() => setHidePassword(!hidePassword)}
+                style={{ fontSize: FontSize.large, color: '#B2B2B2' }}
+                name={!hidePassword ? 'eye-off-outline' : 'eye-outline'}
+              />
+            )}
+          </View>
+          {errors[name] && (
+            <Text style={{ color: 'red', fontSize: 12, marginTop: 7 }}>
+              {String(errors[name]?.message)}
+            </Text>
+          )}
+        </View>
+      )}
+    />
+  );
+};
+
+export default Input
+
+const styles = StyleSheet.create({
+  label: {
+    position: 'absolute',
+    top: -8,
+    left: 10,
+    backgroundColor: 'white',
+    paddingHorizontal: 5,
+    fontSize: 12,
+    color: "#4E444B"
+  },
+  inputContainer: {
+    height: 56,
+    backgroundColor: Colors.background,
+    flexDirection: "row",
+    paddingHorizontal: 8,
+    borderWidth: 1,
+    alignItems: "center",
+    borderRadius: 4
+  }
+})
+
+{/* <TextInput 
           secureTextEntry = {hidePassword}
+    
           autoCorrect = {false}
           onFocus = {() => {
             onFocus();
@@ -49,46 +145,4 @@ const Input: React.FC<InputProps> = ({ label, iconName, error, password, passwor
           placeholder={placeholder}
           style={{color: Colors.primary, flex: 1}}
           {...rest}
-        />
-        {
-          suffixIcon && 
-          <MaterialCommunityIcons
-            name = "plus-circle"
-            color="#808080"
-            size={22}
-          />
-        }
-        {
-          passwordIcon && 
-          <MaterialCommunityIcons
-            onPress={() => setHidePassword(!hidePassword)}
-            style = {{ fontSize: FontSize.large, color: "#B2B2B2"}}
-            name = {hidePassword ? 'eye-outline' : 'eye-off-outline'}
-          />
-        }
-        
-      </View>
-      {error && <Text style={{color: Colors.red, fontSize: 12, marginTop: 7}}>{error}</Text>}
-    </View>
-  )
-}
-
-export default Input
-
-const styles = StyleSheet.create({
-  label: {
-    marginVertical: 8,
-    fontSize: FontSize.small,
-    color: Colors.text,
-    fontFamily:Font["inter-regular"]
-  },
-  inputContainer: {
-    height: 44,
-    backgroundColor: Colors.background,
-    flexDirection: "row",
-    paddingHorizontal: 8,
-    borderWidth: 1,
-    alignItems: "center",
-    borderRadius: 8
-  }
-})
+        /> */}

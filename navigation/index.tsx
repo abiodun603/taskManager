@@ -46,6 +46,31 @@ import SelectPilotType from "../screens/registration/SelectPilotType";
 import GroupContact from "../screens/contact/GroupContact";
 import EditGroup from "../screens/contact/EditGroup";
 import Numbers from "../screens/contact/Numbers";
+import Verification from "../screens/auth/VerficationCode";
+import Welcome from "../screens/onboard/Welcome";
+import AccountOption from "../screens/auth/AccountOption";
+import ResetCode from "../screens/auth/ResetCode";
+import AccountSuccess from "../screens/auth/AccountSuccess";
+import IdentifySuccess from "../screens/auth/IdentifySuccess";
+import ProfileNotification from "../screens/profile/profileNotification";
+import ProfilePreview from "../screens/profile/ProfilePreview";
+import EditProfile from "../screens/profile/EditProfile";
+import Events from "../screens/events/Events";
+import Resources from "../screens/resources/Resources";
+import Settings from "../screens/settings/Settings";
+import About from "../screens/about/About";
+import Language from "../screens/language/Language";
+import SavedItems from "../screens/savedItems/SavedItems";
+import CommunityInvites from "../screens/community/CommunityInvites";
+import SetPassword from "../screens/auth/SetPassword";
+import EmailVerification from "../screens/auth/EmailVerification";
+import Preview from "../screens/pdf/Preview";
+import Messages from "../screens/messages/Messages";
+import Notification from "../screens/notification/Notification";
+import Identification from "../screens/auth/Identification";
+import Role from "../screens/identification/Role";
+import TopNavPanel from "./TopTabs";
+import { AuthProvider } from "../contexts/AuthContext";
 
 const theme = {
   ...DefaultTheme,
@@ -58,7 +83,9 @@ const theme = {
 export default function Navigation() {
   return (
     <NavigationContainer theme={theme}>
-      <RootNavigator />
+      <AuthProvider>
+        <RootNavigator />
+      </AuthProvider>
     </NavigationContainer>
   );
 }
@@ -74,13 +101,37 @@ export default function Navigation() {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
+    
     >
-      <Stack.Screen name="CreateAccount" component={Create} options={{headerShown: false}} /> 
-      <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}}/> 
-      <Stack.Screen name="ForgetPassword" component={ForgetPassword} options={{headerShown: false}}/>
-      <Stack.Screen name="OtpScreen" component={OtpScreen} options={{headerShown: false}}/>  
-      <Stack.Screen name="ResetPassword" component={ResetPassword} options={{headerShown: false}}/>  
-      <Stack.Screen name="ResetSuccess" component={ResetSuccess} options={{headerShown: false}}/>  
+      <Stack.Screen name="Welcome" component={Welcome} /> 
+      <Stack.Screen name="ProfileNotification" component={ProfileNotification} /> 
+      <Stack.Screen name="ProfilePreview" component={ProfilePreview} /> 
+      <Stack.Screen name="EditProfile" component={EditProfile} /> 
+      <Stack.Screen name="Events" component={Events} /> 
+      <Stack.Screen name="Resources" component={Resources} /> 
+      <Stack.Screen name="Settings" component={Settings} /> 
+      <Stack.Screen name="About" component={About} /> 
+      <Stack.Screen name="Language" component={Language} /> 
+      <Stack.Screen name="SavedItems" component={SavedItems} /> 
+      <Stack.Screen name="CommunityInvites" component={CommunityInvites} /> 
+      <Stack.Screen name="SetPassword" component={SetPassword} /> 
+      <Stack.Screen name="EmailVerification" component={EmailVerification} /> 
+      <Stack.Screen name="AccountOption" component={AccountOption} /> 
+      <Stack.Screen name="CreateAccount" component={Create} /> 
+      <Stack.Screen name="AccountSuccess" component={AccountSuccess} /> 
+      <Stack.Screen name="IdentifySuccess" component={IdentifySuccess} /> 
+      <Stack.Screen name="Login" component={LoginScreen}/> 
+      <Stack.Screen name="ForgetPassword" component={ForgetPassword}/>
+      <Stack.Screen name="ResetCode" component={ResetCode} />
+      <Stack.Screen name="OtpScreen" component={OtpScreen}/>  
+      <Stack.Screen name="ResetPassword" component={ResetPassword} />  
+      <Stack.Screen name="ResetSuccess" component={ResetSuccess}/>  
+      <Stack.Screen name="PdfPreview" component={Preview}/>
+      <Stack.Screen name="Notification" component={Notification}/>
+      <Stack.Screen name="Identification" component={Identification}/>
+      {/* <Stack.Screen name="TopNavPanel" component={TopNavPanel}/> */}
+
+
       <Stack.Screen name="ChoosePilot" component={ChoosePilot} />  
       <Stack.Screen name="PickPilot" component={PickPilot} />  
       <Stack.Screen name="SelectPlan" component={SelectPlan} />
@@ -118,6 +169,7 @@ export default function Navigation() {
       <Stack.Screen name="GroupContact" component={GroupContact} /> 
       <Stack.Screen name="EditGroup" component={EditGroup} /> 
       <Stack.Screen name="Numbers" component={Numbers} /> 
+      <Stack.Screen name="Verification" component={Verification} /> 
     </Stack.Navigator>
   );
 }

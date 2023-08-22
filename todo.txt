@@ -66,3 +66,17 @@ add another screen
               
               <Text className='text-[#808080] font-normal text-sm ml-11'>New Messages: 4</Text>
               <Text className='text-[#808080] font-normal text-sm ml-11'>Missed calls: 4</Text>
+
+
+
+ <View
+      style = {{
+          height: SIZES.height,
+          width: SIZES.width
+      }}
+  >
+      {item.label === constants.screens.home && <Home navigation={navigation}/>}
+      {item.label == constants.screens.messages && <Messages navigation={navigation}/>}
+      {item.label == constants.screens.pad && <Community navigation={navigation}/>}
+      {item.label == constants.screens.crm && <Profile navigation={navigation}/>}
+  </View>

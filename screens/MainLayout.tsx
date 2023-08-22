@@ -1,20 +1,36 @@
 import React from 'react'
 import {StyleSheet, Text, View,Image,TouchableWithoutFeedback, FlatList } from 'react-native'
+
+// ** Third Party 
+import {LinearGradient} from 'expo-linear-gradient';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated"
+
+// ** Assets
 import { COLORS, FONTS, SIZES } from '../assets'
+
+// ** Image
+import home from "../assets/icons/home.png"
+import chat from "../assets/icons/chat.png"
+import community from "../assets/icons/people.png"
+import profile from "../assets/icons/profile.png"
+
+// ** Constants
 import {constants} from "../constants"
 import {connect} from "react-redux"
+
+// ** State Management
 import { setSelectedTab } from '../stores/tab/tabAction'
-import {LinearGradient} from 'expo-linear-gradient';// import { Search, Guard, Notification, Home } from '.'
-import addUser from "../assets/images/icons/add-use.png"
-import home from "../assets/images/icons/home.png"
-import search from "../assets/images/icons/search.png"
-import notification from "../assets/images/icons/bell.png"
-import Home from './Home'
-import Crm from './Crm'
-import DailPad from './DailPad'
+
+// ** Components
 import Colors from '../constants/Colors'
+import Home from './Home'
 import Messages from './messages/Messages'
+import Community from './Community'
+import Profile from './Profile'
+
+// ** Images
+
+
 
 const TabButton = ({label, icon, isFocused,onPress, outerContainerStyle, innerContainerStyle}: {label: string, icon: any,isFocused: boolean, onPress: () => void, outerContainerStyle: any,  innerContainerStyle: any}) => {
     return (
@@ -33,27 +49,32 @@ const TabButton = ({label, icon, isFocused,onPress, outerContainerStyle, innerCo
           >
             <Animated.View
               style={[{
-                flexDirection: "row",
+                // flexDirection: "col",
                 alignItems: "center",
                 justifyContent: "center",
               }, innerContainerStyle]}
             >
-              <Image 
-                source={icon} 
-                style={{
-                  width: 20, 
-                  height: 20, 
-                  tintColor: isFocused? COLORS.white : COLORS.gray
-                }}
-              />
+              <View className={ isFocused ? 'px-4 py-1 rounded-2xl bg-[#FFD7F3]': undefined }>
+                <Image 
+                  source={icon} 
+                  style={{
+                    width: 20, 
+                    height: 20, 
+                    tintColor: isFocused? "#000000" : "#262626"
+                    
+                  }}
+
+                />
+              </View>
+              
 
               {isFocused && 
                 <Text
                   numberOfLines = {1}
                   style={{
                     marginLeft: SIZES.base,
-                    ...FONTS.h3,
-                    color: isFocused ? COLORS.white :  COLORS.gray
+                    ...FONTS.body5,
+                    color: isFocused? "#1F1A1D" : "#262626"
                   }}
                 >
                   {label}
@@ -145,43 +166,44 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
                 animated: false
             })
             homeTabFlex.value = withTiming(4 , {duration: 500})
-            homeTabColor.value = withTiming(Colors.primary, {duration: 500})
+            homeTabColor.value = withTiming(Colors.transparent, {duration: 500})
         }else {
             homeTabFlex.value = withTiming(1 , {duration: 500})
             homeTabColor.value = withTiming(COLORS.white, {duration: 500})
         }
 
-        if(selectedTab == constants.screens.messages) {
+        if(selectedTab == constants.screens.chats) {
             flatListRef?.current?.scrollToIndex({
                 index: 1,
                 animated: false
             })
             messagesTabFlex.value = withTiming(4 , {duration: 500})
-            messagesTabColor.value = withTiming(Colors.primary, {duration: 500})
+            messagesTabColor.value = withTiming(Colors.transparent, {duration: 500})
         }else {
             messagesTabFlex.value = withTiming(1 , {duration: 500})
             messagesTabColor.value = withTiming(COLORS.white, {duration: 500})
+            
         }
 
-        if(selectedTab == constants.screens.pad) {
+        if(selectedTab == constants.screens.community) {
             flatListRef?.current?.scrollToIndex({
                 index: 2,
                 animated: false
             })
             padTabFlex.value = withTiming(4 , {duration: 500})
-            padTabColor.value = withTiming(Colors.primary, {duration: 500})
+            padTabColor.value = withTiming(Colors.transparent, {duration: 500})
         }else {
             padTabFlex.value = withTiming(1 , {duration: 500})
             padTabColor.value = withTiming(COLORS.white, {duration: 500})
         }
         
-        if(selectedTab == constants.screens.crm) {
+        if(selectedTab == constants.screens.profile) {
             flatListRef?.current?.scrollToIndex({
                 index: 3,
                 animated: false
             })
             notificationTabFlex.value = withTiming(4 , {duration: 500})
-            notificationTabColor.value = withTiming(Colors.primary, {duration: 500})
+            notificationTabColor.value = withTiming(Colors.transparent, {duration: 500})
         }else {
             notificationTabFlex.value = withTiming(1 , {duration: 500})
             notificationTabColor.value = withTiming(COLORS.white, {duration: 500})
@@ -192,32 +214,32 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
 
 
             <View style ={{flex:1}}>
-                <FlatList
-                    ref={flatListRef}
-                    horizontal
-                    scrollEnabled={false}
-                    pagingEnabled
-                    snapToAlignment="center"
-                    snapToInterval = {SIZES.width}
-                    showsHorizontalScrollIndicator={false}
-                    data={constants.sidebar__tabs}
-                    keyExtractor={item => `${item.id}`}
-                    renderItem={({item, index}) => {
-                        return(
-                            <View
-                                style = {{
-                                    height: SIZES.height,
-                                    width: SIZES.width
-                                }}
-                            >
-                                {item.label === constants.screens.home && <Home navigation={navigation}/>}
-                                {item.label == constants.screens.messages && <Messages navigation={navigation}/>}
-                                {item.label == constants.screens.pad && <DailPad navigation={navigation}/>}
-                                {item.label == constants.screens.crm && <Crm navigation={navigation}/>}
-                            </View>
-                        )
-                    }}
-                />
+              <FlatList
+                ref={flatListRef}
+                horizontal
+                scrollEnabled={false}
+                pagingEnabled
+                snapToAlignment="center"
+                snapToInterval = {SIZES.width}
+                showsHorizontalScrollIndicator={false}
+                data={constants.sidebar__tabs}
+                keyExtractor={item => `${item.id}`}
+                renderItem={({item, index}) => {
+                  return(
+                    <View
+                      style = {{
+                        height: SIZES.height,
+                        width: SIZES.width
+                      }}
+                    >
+                      {item.label === constants.screens.home && <Home navigation={navigation}/>}
+                      {item.label == constants.screens.chats && <Messages navigation={navigation}/>}
+                      {item.label == constants.screens.community && <Community navigation={navigation}/>}
+                      {item.label == constants.screens.profile && <Profile navigation={navigation}/>}
+                    </View>
+                  )
+                }}
+              />
             </View>
 
             <View style = {{
@@ -226,74 +248,73 @@ const MainLayout = ({navigation, selectedTab, setSelectedTab}: {navigation: any,
                 alignItems: "center",
                 justifyContent: 'flex-end'
             }}>
-                {/* Shadow */}
-                <LinearGradient
-                    start={{x:0, y: 0}}
-                    end={{x: 0, y:4}}
-                    colors = {[
-                        COLORS.transparent,
-                        COLORS.transparent
-                    ]}
-                    style={{
-                        position: 'absolute',
-                        top: -1,
-                        left: 0,
-                        right: 0,
-                        height: 90,
-                        borderTopLeftRadius: 15,
-                        borderTopRightRadius: 15
-                    }}
-                />
+              {/* Shadow */}
+              <LinearGradient
+                start={{x:0, y: 0}}
+                end={{x: 0, y:4}}
+                colors = {[
+                  COLORS.transparent,
+                  COLORS.transparent
+                ]}
+                style={{
+                  position: 'absolute',
+                  top: -1,
+                  left: 0,
+                  right: 0,
+                  height: 90,
+                  borderTopLeftRadius: 15,
+                  borderTopRightRadius: 15
+                }}
+              />
 
                 {/* Tabs */}
                 <View
-                    style={{
-                        flex:1,
-                        flexDirection: "row",
-                        alignItems: "center",
-                        paddingHorizontal: SIZES.radius,
-                        paddingBottom: 10,
-                        borderTopRightRadius: 15,
-                        borderTopLeftRadius: 15,
-                        backgroundColor: COLORS.white
-                    }}
+                  style={{
+                    flex:1,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    paddingHorizontal: SIZES.radius,
+                    paddingBottom: 10,
+                    borderTopRightRadius: 15,
+                    borderTopLeftRadius: 15,
+                    backgroundColor: COLORS.white
+                  }}
                 >
-                    <TabButton
-                        label={constants.screens.home}
-                        icon={home}
-                        isFocused={selectedTab == constants.screens.home}
-                        outerContainerStyle ={homeColorStyle}
-                        innerContainerStyle = {homeFlexStyle}
-                        onPress={() => setSelectedTab(constants.screens.home)}
-                    />
+                  <TabButton
+                    label="Home"
+                    icon={home}
+                    isFocused={selectedTab == constants.screens.home}
+                    outerContainerStyle ={homeColorStyle}
+                    innerContainerStyle = {homeFlexStyle}
+                    onPress={() => setSelectedTab(constants.screens.home)}
+                  />
                     
-                    <TabButton
-                        label={constants.screens.messages}
-                        icon={addUser}
-                        isFocused={selectedTab == constants.screens.messages}
-                        outerContainerStyle ={messagesColorStyle}
-                        innerContainerStyle = {messagesFlexStyle}
-                        onPress={() => setSelectedTab(constants.screens.messages)}
-                    />
+                  <TabButton
+                    label="Chats"
+                    icon={chat}
+                    isFocused={selectedTab == constants.screens.chats}
+                    outerContainerStyle ={messagesColorStyle}
+                    innerContainerStyle = {messagesFlexStyle}
+                    onPress={() => setSelectedTab(constants.screens.chats)}
+                  />
 
-                    <TabButton
-                        label={constants.screens.pad}
-                        icon={search}
-                        isFocused={selectedTab == constants.screens.pad}
-                        outerContainerStyle ={padColorStyle}
-                        innerContainerStyle = {padFlexStyle}
-                        onPress={() => setSelectedTab(constants.screens.pad)}
-                    />
+                  <TabButton
+                    label={constants.screens.community}
+                    icon={community}
+                    isFocused={selectedTab == constants.screens.community}
+                    outerContainerStyle ={padColorStyle}
+                    innerContainerStyle = {padFlexStyle}
+                    onPress={() => setSelectedTab(constants.screens.community)}
+                  />
 
-                    <TabButton
-                        label={constants.screens.crm}
-                        icon={notification}
-                        isFocused={selectedTab == constants.screens.crm}
-                        outerContainerStyle ={notificationColorStyle}
-                        innerContainerStyle = {notificationFlexStyle}
-                        onPress={() => setSelectedTab(constants.screens.crm)}
-                    />
-                    
+                  <TabButton
+                    label={constants.screens.profile}
+                    icon={profile}
+                    isFocused={selectedTab == constants.screens.profile}
+                    outerContainerStyle ={notificationColorStyle}
+                    innerContainerStyle = {notificationFlexStyle}
+                    onPress={() => setSelectedTab(constants.screens.profile)}
+                  />
                 </View>
             </View>
         </Animated.View>

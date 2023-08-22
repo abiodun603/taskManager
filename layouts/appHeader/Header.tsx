@@ -5,6 +5,7 @@ import Font from '../../constants/Font';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
+import AntDesign from "@expo/vector-icons/AntDesign"
 import Colors from '../../constants/Colors';
 import FontSize from '../../constants/FontSize';
 import { COLORS, SIZES } from '../../assets';
@@ -18,7 +19,7 @@ const w = Dimensions.get('window').width
 
 // 
 interface HeaderProps {
-  title: string;
+  title?: string;
   onPress?: () => void;
   iconButton?: boolean;
   rightNavigation?: boolean | string;
@@ -26,10 +27,12 @@ interface HeaderProps {
   drawerNav?: boolean;
   navigation?:any;
   iconName? : any;
+  extraOneIcon? : any;
+  profileIcon?:boolean;
   iconColor? : any;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, drawerNav, navigation, iconColor, iconName, onPress=()=>{},rightNavPress=()=>{}, iconButton, rightNavigation}) => {
+const Header: React.FC<HeaderProps> = ({ title, extraOneIcon, profileIcon, drawerNav, navigation, iconColor, iconName, onPress=()=>{},rightNavPress=()=>{}, iconButton, rightNavigation}) => {
 
   const navigate = useNavigation()
 
@@ -60,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ title, drawerNav, navigation, iconColor
         >
           {title}
         </Text>
-        <View>
+        <View className='flex flex-row items-center space-x-2'>
           {rightNavigation && 
           <TouchableOpacity
             onPress={rightNavPress}
@@ -68,12 +71,32 @@ const Header: React.FC<HeaderProps> = ({ title, drawerNav, navigation, iconColor
             <Text style={{color: Colors.text, fontFamily: Font['inter-medium'], fontSize: FontSize.small}}>{rightNavigation}</Text>
           </TouchableOpacity>
           }
+          
+          
+          {
+            extraOneIcon && 
+            <TouchableOpacity
+              onPress={onPress}
+            >
+              <Ionicons name={extraOneIcon} size={25} color={iconColor}  />
+            </TouchableOpacity>
+          }
           {
             iconName && 
             <TouchableOpacity
               onPress={onPress}
             >
               <MaterialCommunityIcons name={iconName} size={25} color={iconColor}  />
+            </TouchableOpacity>
+          }
+          {
+            profileIcon && 
+            <TouchableOpacity
+              onPress={onPress}
+              className='p-2 bg-[#FFD7F3] rounded-full '
+              
+            >
+              <AntDesign name="user" size={20} color="#A3229A"  />
             </TouchableOpacity>
           }
         
@@ -88,7 +111,8 @@ export default Header
 const styles = StyleSheet.create({
   header: {
     width: '100%',
-    height: 140,
+    marginTop: 50,
+    height: 80,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

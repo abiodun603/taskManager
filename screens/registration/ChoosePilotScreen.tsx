@@ -13,7 +13,7 @@ const ChoosePilot: React.FC<Props> = ({ navigation: { navigate }}) => {
     <Layout
       title='Pick your One Reach number'
     >
-      <View style={{padding: 15,}}>
+      <View style={{paddingHorizontal: 15}}>
         {/* ====== Participant List =====*/}
         <FlatList
           data={DATA1}

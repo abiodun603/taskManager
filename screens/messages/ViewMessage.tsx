@@ -26,8 +26,7 @@ const ViewMessage: React.FC<Props> = ({ navigation: { navigate } }) => {
     <Layout 
       title = "Jane Ngozi"
       onPress={()=> navigate("NewMessage")}
-      iconName = "trash-can"
-      iconColor="#FF0000"
+      extraOneIcon="call-outline"
     >
       <View style={styles.container}>
         {/* time */}

@@ -1,12 +1,16 @@
 const screens = {
     main_layout: "MainLaoyout",
     home: "Home",
-    messages: "Messages",
-    pad: "Dial pad",
-    crm: "CRM",
-    call: "Call",
+    resources: "Resources",
+    events: "Events",
+    settings: "Settings",
+    chats: "Chats",
+    community: "Community",
+    profile: "Profile",
     contact: "Contact",
-    account: "Account"
+    rate: "Rate Us",
+    support: "Support"
+
 }
 
 const sidebar__tabs = [
@@ -16,19 +20,19 @@ const sidebar__tabs = [
     },
     {
         id: 2,
-        label: screens.messages
+        label: screens.chats
     },
     {
         id: 1,
-        label: screens.pad
+        label: screens.community
     },
     {
         id: 3,
-        label: screens.crm
+        label: screens.profile
     },
     {
       id: 4,
-      label: screens.call
+      label: screens.rate
     },
     {
       id: 5,
@@ -36,7 +40,7 @@ const sidebar__tabs = [
     },
     {
       id: 6,
-      label: screens.account
+      label: screens.support
     }
 ]
 

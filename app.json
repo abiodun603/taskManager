@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "cloudPBX",
-    "slug": "cloudPBX",
+    "name": "ABA",
+    "slug": "aba",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,7 +10,6 @@
       "image": "./assets/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
-       
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -26,14 +25,14 @@
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.abiodun603.cloudPBX"
+      "package": "com.abiodun.telvida.aba"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "15be3931-8aef-412e-ae8e-6e235220166e"
+        "projectId": "7aff42d9-b101-40cf-b721-d772bbca0e21"
       }
     }
   }

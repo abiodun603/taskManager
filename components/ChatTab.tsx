@@ -4,41 +4,31 @@ import {MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons';
 import Input from './Input';
 import FontSize from '../constants/FontSize';
 import Colors from '../constants/Colors';
+import { TextInput } from 'react-native-paper';
 
 const w = Dimensions.get('window').width
 
 const ChatTab = () => {
   return (
-    <View style={styles.chatInputFieldContainer}>
+    <View style={styles.chatInputFieldContainer} className='mb-10'>
       <TouchableOpacity
         onPress={() => null}
-        style={{marginRight: 5, marginTop: 8}}
       >
-        <MaterialCommunityIcons name='camera' color={Colors.gray} size={30}/>
+        <MaterialCommunityIcons name='plus' color={Colors.gray} size={30}/>
       </TouchableOpacity>
     {/* ===== INPUT FIELD ===== */}
-      <View style={{flexGrow: 1, flex: 1}}>
-
-        <Input
+      <View style={{flexGrow: 1}} className='mx-5' >
+        <TextInput
           placeholder='Text message'
+          mode="outlined"
+          style={{ backgroundColor: 'transparent' }}
         />
       </View>
       {/* Send Button */}
       <TouchableOpacity
         onPress={() => null}
-        style={{ 
-          width: 40,
-          height: 40,
-          borderRadius: FontSize.xxLarge,
-          backgroundColor: Colors.primary,
-          justifyContent:"center",
-          alignItems: "center",
-          marginLeft: 5,
-          marginTop: 8
-        }}
       >
-         <FontAwesome name='microphone' style={{color: Colors.background, fontSize: 15}} />
-        {/* <FontAwesome name='send' style={{color: Colors.background, fontSize: 15}} /> */}
+         <FontAwesome name='send'  color="#A3229A" size={20} />
       </TouchableOpacity>
     {/* </View> */}
   </View>
@@ -54,6 +44,7 @@ const styles = StyleSheet.create({
     bottom: 0, 
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: 20
   }
 })
