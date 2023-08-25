@@ -1,18 +1,24 @@
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { FC } from 'react'
+
+// ** Third Party
 import Ionicons from "@expo/vector-icons/Ionicons"
+
+// ** Components
 import CustomButton from '../CustomButton';
-import FontSize from '../../constants/FontSize';
 
 const WIDTH = Dimensions.get('window').width
 const HEIGHT_MODAL =220;
 
-const SimpleModal = (props: any) => {
+interface SimpleModalProps {
+  title: string;
+  description: string;
+  buttonName: string;
+  onCloseModal: () => void;
+  onPressed: () => void;
+}
 
-  const closeModal = (bool: boolean, data: string ) => {
-    props.changeModalVisible(false)
-    props.setData(data)
-  }
+const SimpleModal: FC<SimpleModalProps> = ({title, description, buttonName, onPressed, onCloseModal}) => {
 
   return (
     <TouchableOpacity
@@ -23,16 +29,13 @@ const SimpleModal = (props: any) => {
         <Ionicons
           size={40}
           color= '#FF4242'
-          name = "wallet-outline"
+          name = "trash"
         />
-        <Text className='text-black text-sm font-normal mt-3'>Log Out?</Text>
-        <Text className='text-[11px] text-kdesc mb-4 mt-3'>
-          Are you sure you want to sign out?{'\n'}
-          This action cannot be undone.
-        </Text>
+        <Text className='text-black text-sm font-normal mt-3'>{title}</Text>
+        <Text className='text-[11px] text-kdesc mb-4 mt-3'>{description}</Text>
         <View className='flex flex-row'>
-          <CustomButton title='cancel' onPress={() => closeModal}  buttonStyle={{width: 125, borderWidth: 1, borderColor: "#80747B", backgroundColor: "transparent", marginRight: 10}} titleColor="#80747B"/>
-          <CustomButton title='Log Out' onPress={props.onLogOUt} buttonStyle={{width: 125, backgroundColor: "#BA1A1A"}} />
+          <CustomButton title='cancel' onPress={onCloseModal}  buttonStyle={{width: 125, borderWidth: 1, borderColor: "#80747B", backgroundColor: "transparent", marginRight: 10}} titleColor="#80747B"/>
+          <CustomButton title={buttonName} onPress={onPressed} buttonStyle={{width: 125, backgroundColor: "#BA1A1A"}} />
         </View>
       </View>
     </TouchableOpacity>

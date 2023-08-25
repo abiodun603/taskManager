@@ -93,7 +93,7 @@ const Input: React.FC<InputProps> = ({
               <MaterialCommunityIcons
                 onPress={() => setHidePassword(!hidePassword)}
                 style={{ fontSize: FontSize.large, color: '#B2B2B2' }}
-                name={!hidePassword ? 'eye-off-outline' : 'eye-outline'}
+                name={!hidePassword ? 'eye-outline' : 'eye-off-outline'}
               />
             )}
           </View>
@@ -130,19 +130,3 @@ const styles = StyleSheet.create({
     borderRadius: 4
   }
 })
-
-{/* <TextInput 
-          secureTextEntry = {hidePassword}
-    
-          autoCorrect = {false}
-          onFocus = {() => {
-            onFocus();
-            setIsFocused(true);
-          }}
-          onBlur={() => {
-            setIsFocused(false);
-          }}
-          placeholder={placeholder}
-          style={{color: Colors.primary, flex: 1}}
-          {...rest}
-        /> */}

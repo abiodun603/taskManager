@@ -1,37 +1,31 @@
 // ** Toolkit imports
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { persistStore, persistReducer } from 'redux-persist';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // ** Reducers
-// import profileReducer from '@/store/app/profile'
-// import miscellaneousReducer from '@/store/app/miscellaneous'
-// import dashboardReducer from '@/store/app/dashboard'
-// import passwordReducer from '@/store/app/password-change'
-// import ipReducer from '@/store/app/ipwhitelist'
-// import intrabankReducer from '@/store/app/intrabank'
-// import testmodeReducer from '@/store/app/test-mode'
-// import transactionReducer from '@/store/app/transaction'
-// import beneficiariesReducer from '@/store/app/beneficiaries'
-// import otpReducer from '@/store/app/otp'
-// import accountReducer from '@/store/app/account'
-// import otpVerificationReducer from './app/otpVerification'
+import todoReducer from '../stores/app/todoSlice'
+
+import todoSlice from '../stores/app/todoSlice';
+
 
 const rootReducer = combineReducers({
-  // dashboard: dashboardReducer,
-  // profile: profileReducer,
-  // miscellaneous: miscellaneousReducer,
-  // password: passwordReducer,
-  // account: accountReducer,
-  // ipwhitelist: ipReducer,
-  // intrabank: intrabankReducer,
-  // transaction: transactionReducer,
-  // beneficiaries: beneficiariesReducer,
-  // otp: otpReducer,
-  // otpVerification: otpVerificationReducer,
-  // testmode: testmodeReducer
+  todo: todoReducer
 })
 
-export const store = configureStore({
-  reducer: rootReducer,
+// Configure Redux Persist
+const persistConfig = {
+  key: 'root', // Change this key to suit your application
+  storage: AsyncStorage,
+};
+
+// Create a pers
+const persistedReducer = persistReducer(persistConfig, todoSlice);
+
+
+
+const store = configureStore({
+  reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: false
@@ -39,5 +33,48 @@ export const store = configureStore({
   devTools: true
 });
 
+
+
+// Create the persistor
+const persistor = persistStore(store);
+
+export { store, persistor };
 export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>
+
+
+// import { combineReducers, configureStore } from '@reduxjs/toolkit';
+// import { persistReducer, persistStore } from 'redux-persist';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// import todoReducer, { updateInitialValue } from '../stores/app/todoSlice'; // Import your actions from todoSlice
+
+// const rootReducer = combineReducers({
+//   todo: todoReducer,
+// });
+
+// const persistConfig = {
+//   key: 'root',
+//   storage: AsyncStorage,
+// };
+
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// const store = configureStore({
+//   reducer: persistedReducer,
+//   middleware: getDefaultMiddleware =>
+//     getDefaultMiddleware({
+//       serializableCheck: false,
+//     }),
+//   devTools: true,
+// });
+
+// const persistor = persistStore(store);
+
+// // Load initial value and update the initial state once resolved
+// (async () => {
+//   const initialTodoList = await getInitialTodo();
+//   store.dispatch(updateInitialValue(initialTodoList));
+// })();
+
+// export { store, persistor };

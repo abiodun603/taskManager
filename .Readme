@@ -1,20 +1,21 @@
-expo client:install:ios
-https://oblador.github.io/react-native-vector-icons/
-eU5dx4X11t6y9qKz8YtK
-expo client:install:ios
-open -a simulator.
+This project was build using
 
+- React native expo
+- Redux toolkit
+- React Hook Form is use to handle form state
 
+Node version
+This project is runing of node version 16 (12 >=, <= 16)
 
-<!--  -->
-After Sign up
-an otp scree
-message: An otp will be sent to 
-your phone number
+All dependencies were installed using yarn
 
-https://aboutreact.com/bottom-tab-view-inside-navigation-drawer/
+- yarn install
 
-https://medium.com/@daboigbae/how-to-set-up-eslint-prettier-and-husky-with-react-native-to-improve-code-quality-326ea337ccd3
-<!-- How to write a custom navigator in Typescript with type-checking -->
+The css library used are:
 
-https://github.com/react-navigation/react-navigation/issues/5937
+- Taillwind
+- Native wind (To allow tailwind in react native application)
+
+To aid readability because we are usign tailwind
+
+- Tailwind CSS intelliSense VSCode extension: This allow readability of tailwind code base
